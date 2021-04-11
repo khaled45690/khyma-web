@@ -197,7 +197,9 @@ class _PrayerTimesState extends State<PrayerTimes> {
     var year =  "${selectedDate.year.toString().padLeft(2,'0')}";
     print(month);
     Map<String, dynamic> testMap = Map<String, dynamic>();
-    var myStr = 'http://api.aladhan.com/v1/calendarByCity?city=CAIRO&country=EGYPT&method=5&year='+year+'&month='+month;
+    // https://khyma.hwayadesigns.com/prayers.php?year=2021&month=4
+    var myStr = 'https://khyma.hwayadesigns.com/prayers.php?year='+year+'&month='+month;
+    // var myStr = 'http://api.aladhan.com/v1/calendarByCity?city=CAIRO&country=EGYPT&method=5&year='+year+'&month='+month;
     var myUri = Uri.parse(myStr);
     final response = await http.get(myUri);
     if (response.statusCode == 200) {

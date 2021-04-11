@@ -19,13 +19,13 @@ class QuranScreenState {
     var response = await http.get(
       // https://hwayadesigns.com/ramadan/quraan.php?page=$pageNumber
       // http://api.alquran.cloud/v1/page/$pageNumber/ar.alafasy
-      Uri.parse('https://hwayadesigns.com/ramadan/quraan.php?page=$pageNumber'),
+      Uri.parse('https://khyma.hwayadesigns.com/quraan.php?page=$pageNumber'),
       headers: <String, String>{
         'Content-Type': 'application/json',
       },
     );
     var response2 = await http.get(
-      Uri.parse('https://hwayadesigns.com/ramadan/surahs.php'),
+      Uri.parse('https://khyma.hwayadesigns.com/surahs.php'),
       headers: <String, String>{
         'Content-Type': 'application/json',
       },
@@ -68,7 +68,7 @@ class QuranScreenState {
     });
     Navigator.of(this.state.context).pop();
     var response = await http.get(
-      Uri.parse('https://hwayadesigns.com/ramadan/surah.php?page=$surahNumber'),
+      Uri.parse('https://khyma.hwayadesigns.com/surah.php?page=$surahNumber'),
       headers: <String, String>{
         'Content-Type': 'application/json',
       },
@@ -115,7 +115,7 @@ class QuranScreenState {
       });
       var response = await http.get(
         Uri.parse(
-            'https://hwayadesigns.com/ramadan/quraan.php?page=$pageNumber'),
+            'https://khyma.hwayadesigns.com/quraan.php?page=$pageNumber'),
         headers: <String, String>{
           'Content-Type': 'application/json',
         },

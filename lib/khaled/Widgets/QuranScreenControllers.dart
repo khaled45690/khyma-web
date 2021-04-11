@@ -61,7 +61,8 @@ class QuranScreenControllers extends StatelessWidget {
               ),
               Text(
                 "الصفحة ${data["ayahs"][0]["page"]} الجزء ${data["ayahs"][0]["juz"]}",
-              )
+              style: TextStyle(fontFamily: "roboto",),textDirection: TextDirection.rtl,
+                )
             ],
           ),
         ),

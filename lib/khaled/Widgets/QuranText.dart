@@ -25,7 +25,7 @@ class QuranText extends StatelessWidget {
 
               Container(
                   margin: EdgeInsets.all(5),
-                  child: Text(ayats ,style: TextStyle(color: Colors.white , fontSize: 16 ,letterSpacing: 2 ,height: 1.5, fontFamily: "roboto"), textDirection: TextDirection.rtl ,textAlign: TextAlign.center,)),
+                  child: Text(ayats ,style: TextStyle(color: Colors.white , fontSize: 20 , height: 1.5, fontFamily: "roboto"), textDirection: TextDirection.rtl ,textAlign: TextAlign.center,)),
             ],
           ),
         ),
