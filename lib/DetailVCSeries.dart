@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sanus/khaled/Widgets/SeriesChannels.dart';
 import 'package:sanus/place.dart';
 import 'package:sanus/series.dart';
 // import 'package:youtube_player_flutter/youtube_player_flutter.dart';
@@ -33,7 +34,8 @@ class DetailVCSeries extends StatefulWidget {
 
 class _DetailVCSeriesState extends State<DetailVCSeries> {
   bool isLoading = false;
-
+  List time = [];
+  series mySeries = new series();
   YoutubePlayerController _controller;
   @override
   void initState() {
@@ -50,7 +52,7 @@ class _DetailVCSeriesState extends State<DetailVCSeries> {
 
   @override
   Widget build(BuildContext context) {
-    print(widget.mySeries.id);
+    print(widget.mySeries.id??"");
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFF1D1D1D),
@@ -63,7 +65,7 @@ class _DetailVCSeriesState extends State<DetailVCSeries> {
               ? Center(child: CircularProgressIndicator(backgroundColor: Colors.white,))
               :ListView(
             children: [
-              Text(widget.mySeries.name, textDirection: TextDirection.rtl,
+              Text(mySeries.name?? "", textDirection: TextDirection.rtl,
                 style: TextStyle(
                   fontSize: 30,
                   color: Colors.white,
@@ -81,8 +83,10 @@ class _DetailVCSeriesState extends State<DetailVCSeries> {
               Padding(
                 padding: const EdgeInsets.only( top: 8.0),
                 child: Row(
+                  textDirection: TextDirection.rtl,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Spacer(),
+                    Icon(Icons.format_align_right_outlined, color: Colors.redAccent,),
                     Padding(
                       padding: const EdgeInsets.only(right: 4.0),
                       child: Text("نبذة عن العمل:", textDirection: TextDirection.rtl,
@@ -93,17 +97,36 @@ class _DetailVCSeriesState extends State<DetailVCSeries> {
                         ),
                       ),
                     ),
-                    Icon(Icons.format_align_right_outlined, color: Colors.redAccent,),
                   ],
                 ),
               ),
 
 
-              Text(widget.mySeries.brief, textDirection: TextDirection.rtl,style: TextStyle(
+              Text(mySeries.brief?? "", textDirection: TextDirection.rtl,style: TextStyle(
                 color: Colors.white,
               ),),
 
-
+              Row(
+                textDirection: TextDirection.rtl,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Icon(Icons.alarm, color: Colors.redAccent,),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 4.0),
+                    child: Text("مواعيد العرض:",
+                      textDirection: TextDirection.rtl,
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 15,),
+              for(int i = 0 ; i < time.length ; i++)
+                SeriesChannels(time[i]),
 
 
             ],
@@ -128,7 +151,10 @@ class _DetailVCSeriesState extends State<DetailVCSeries> {
     if (response.statusCode == 200) {
       final jsonResponse = jsonDecode(response.body);
       print("--------------------=====================================>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-      print(jsonResponse["message"][0]);
+      setState(() {
+        time = jsonDecode(jsonResponse["message"][0]["time"]);
+        print(time);
+      });
       testMap = jsonResponse;
       // print("================================");
       // print(testMap["message"]);
@@ -154,7 +180,7 @@ class _DetailVCSeriesState extends State<DetailVCSeries> {
       throw Exception("Failed to load Dogs Breeds.");
     }
     setState(() {
-      widget.mySeries = tempMeal;
+      mySeries = tempMeal;
 
       _controller = YoutubePlayerController(
           initialVideoId: tempMeal.video,

@@ -25,7 +25,7 @@ class QuranScreenState {
       },
     );
     var response2 = await http.get(
-      Uri.parse('http://api.alquran.cloud/v1/surah'),
+      Uri.parse('https://hwayadesigns.com/ramadan/surahs.php'),
       headers: <String, String>{
         'Content-Type': 'application/json',
       },
@@ -68,7 +68,7 @@ class QuranScreenState {
     });
     Navigator.of(this.state.context).pop();
     var response = await http.get(
-      Uri.parse('http://api.alquran.cloud/v1/surah/$surahNumber/ar.alafasy'),
+      Uri.parse('https://hwayadesigns.com/ramadan/surah.php?page=$surahNumber'),
       headers: <String, String>{
         'Content-Type': 'application/json',
       },
