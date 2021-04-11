@@ -1,9 +1,14 @@
 # This is a generated file; do not edit or check into version control.
-flutter_inappwebview=/Users/khalidflutter/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_inappwebview-5.3.0/
-path_provider_linux=/Users/khalidflutter/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-2.0.0/
-path_provider_windows=/Users/khalidflutter/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.0.0/
-shared_preferences=/Users/khalidflutter/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences-2.0.5/
-shared_preferences_linux=/Users/khalidflutter/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_linux-2.0.0/
-shared_preferences_macos=/Users/khalidflutter/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_macos-2.0.0/
-shared_preferences_web=/Users/khalidflutter/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_web-2.0.0/
-shared_preferences_windows=/Users/khalidflutter/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_windows-2.0.0/
+flutter_inappwebview=/Users/hwaya/flutterDev/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_inappwebview-5.3.0/
+path_provider_linux=/Users/hwaya/flutterDev/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-2.0.0/
+path_provider_windows=/Users/hwaya/flutterDev/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.0.0/
+shared_preferences=/Users/hwaya/flutterDev/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences-2.0.5/
+shared_preferences_linux=/Users/hwaya/flutterDev/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_linux-2.0.0/
+shared_preferences_macos=/Users/hwaya/flutterDev/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_macos-2.0.0/
+shared_preferences_web=/Users/hwaya/flutterDev/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_web-2.0.0/
+shared_preferences_windows=/Users/hwaya/flutterDev/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_windows-2.0.0/
+url_launcher=/Users/hwaya/flutterDev/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher-6.0.3/
+url_launcher_linux=/Users/hwaya/flutterDev/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_linux-2.0.0/
+url_launcher_macos=/Users/hwaya/flutterDev/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_macos-2.0.0/
+url_launcher_web=/Users/hwaya/flutterDev/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_web-2.0.0/
+url_launcher_windows=/Users/hwaya/flutterDev/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_windows-2.0.0/

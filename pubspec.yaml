@@ -28,6 +28,7 @@ dependencies:
 #  flutter_local_notifications: ^5.0.0
   carousel_slider: ^3.0.0
   shared_preferences: ^2.0.5
+  youtube_player_iframe: ^2.0.0
 
 
   flutter:

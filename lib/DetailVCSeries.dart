@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sanus/place.dart';
 import 'package:sanus/series.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+// import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'PrayerTimesData.dart';
 import 'package:flutter/widgets.dart';
@@ -12,6 +12,7 @@ import 'myStatefulWidget.dart';
 import 'DetailVCSeries.dart';
 import 'place.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 // TZEQ3O14fPU
 class DetailVCSeries extends StatefulWidget {
@@ -70,9 +71,9 @@ class _DetailVCSeriesState extends State<DetailVCSeries> {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 10.0),
-                child: YoutubePlayer(
+                child: YoutubePlayerIFrame(
                   controller: _controller,
-                  showVideoProgressIndicator: true,
+                  // aspectRatio: 16 / 9,
                 ),
               ),
 
@@ -157,9 +158,13 @@ class _DetailVCSeriesState extends State<DetailVCSeries> {
 
       _controller = YoutubePlayerController(
           initialVideoId: tempMeal.video,
-          flags: const YoutubePlayerFlags(
+          params: const YoutubePlayerParams(
             autoPlay: false,
+            showControls: true,
           )
+        // flags: const YoutubePlayerFlags(
+        //   autoPlay: false,
+        // )
       );
       isLoading = false;
     });
