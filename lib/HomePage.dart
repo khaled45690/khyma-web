@@ -23,6 +23,9 @@ class _HomePageState extends State<HomePage> {
   List<meal> myTempMeals = <meal>[];
   List<meal> mealsList = <meal>[];
   TextDirection txtdir = TextDirection.rtl;
+  List<meal> myTempSortedSweets = <meal>[];
+  List<meal> myTempSortedFoods = <meal>[];
+  List<meal> myTempSortedDrinks = <meal>[];
 
 
 
@@ -198,11 +201,17 @@ class _HomePageState extends State<HomePage> {
               }),
     );
   }
+// اكلات
+  // مشروبات
+  // حلويات
 
   _filterDogList(String text) {
     if (text.isEmpty) {
       setState(() {
         mealsList = myTempMeals;
+        List<meal> sweets = <meal>[];
+        sweets = mealsList.where((element) => element.catigory.toString().contains("حلويات")).toList();
+        print(sweets.length);
       });
     } else {
       // final RegExp nameRegExp = RegExp('[a-zA-Z]');
@@ -225,6 +234,9 @@ class _HomePageState extends State<HomePage> {
           filteredMeals.add(element);
         }
       });
+      List<meal> sweets = <meal>[];
+      sweets = filteredMeals.where((element) => element.catigory.toString().contains("حلويات")).toList();
+      print(sweets.length);
       setState(() {
         mealsList = filteredMeals;
       });
@@ -253,12 +265,16 @@ class _HomePageState extends State<HomePage> {
         // print(img);
         var tempMeal =
             new meal(name: element["name"], image: img, id: element["id"]);
+        tempMeal.catigory = element["catigory"];
         myTempMeals.add(tempMeal);
       });
 
       myTempMeals.forEach((element) {
         // print(element.name);
       });
+      myTempSortedSweets =myTempMeals.where((element) => element.catigory.toString().contains("حلويات")).toList();
+      print(myTempMeals.length);
+      print(myTempSortedSweets);
     } else {
       throw Exception("Failed to load Dogs Breeds.");
     }

@@ -5,6 +5,7 @@ import 'PrayerTimes.dart';
 import 'HomePage.dart';
 import 'khaled/Screens/QuranScreen.dart';
 import 'package:sanus/khaled/Screens/SettingScreen.dart';
+import 'HomePageFood.dart';
 
 class BackGroundTemplate extends StatefulWidget {
   BackGroundTemplate({Key key, this.title, this.SubVC}) : super(key: key);
@@ -238,7 +239,7 @@ class _BackGroundTemplateState extends State<BackGroundTemplate>
           MaterialPageRoute(
               builder: (context) => BackGroundTemplate(
                 title: "Meals",
-                SubVC: HomePage(dbUrl: 'https://hwayadesigns.com/ramadan/meals/files/meals.php',title: "Meals",),
+                SubVC: HomePageFood(dbUrl: 'https://hwayadesigns.com/ramadan/meals/files/meals.php',title: "Meals",),
               )),
         );
         break;

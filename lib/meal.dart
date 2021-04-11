@@ -5,6 +5,7 @@ class meal {
   String recipe;
   String makeHealthy;
   String video;
+  String catigory;
 
   meal({this.name, this.image, this.id});
 }

@@ -8,6 +8,7 @@ import 'package:sanus/BackGroundTemplate.dart';
 // import 'package:timezone/timezone.dart' as tz;
 import 'package:flutter/services.dart';
 import 'NotificationServices.dart';
+import 'HomePageFood.dart';
 
 void main() {
   runApp(MyApp());
@@ -72,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
             MaterialPageRoute(
                 builder: (context) => BackGroundTemplate(
                       title: "ddddd",
-                      SubVC: HomePage(dbUrl: 'https://hwayadesigns.com/ramadan/meals/files/meals.php', title: "Meals",),
+                      SubVC: HomePageFood(dbUrl: 'https://hwayadesigns.com/ramadan/meals/files/meals.php', title: "Meals",),
                     )),
           );
         },
