@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="d8789c14-2213-4644-b521-9e7a62d07c65" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/lib/NotificationServices.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/NotificationServices.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,11 +43,23 @@
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/web" />
+      <recent name="$PROJECT_DIR$/web/icons" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
+      <option name="additionalArgs" value="--web-renderer html" />
       <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />
       <method v="2" />
     </configuration>
@@ -49,30 +77,57 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
-    <state width="1124" height="174" key="GridCell.Tab.0.bottom" timestamp="1618004766063">
-      <screen x="0" y="25" width="1280" height="720" />
+    <state x="112" y="40" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1618135622051">
+      <screen x="0" y="25" width="1280" height="719" />
     </state>
-    <state width="1124" height="174" key="GridCell.Tab.0.bottom/0.25.1280.715@0.25.1280.715" timestamp="1617894517470" />
-    <state width="1124" height="174" key="GridCell.Tab.0.bottom/0.25.1280.716@0.25.1280.716" timestamp="1617898492296" />
+    <state x="112" y="40" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1280.719@0.25.1280.719" timestamp="1618135622051" />
+    <state width="1124" height="174" key="GridCell.Tab.0.bottom" timestamp="1618139421624">
+      <screen x="0" y="25" width="1280" height="721" />
+    </state>
+    <state width="1124" height="174" key="GridCell.Tab.0.bottom/0.25.1280.715@0.25.1280.715" timestamp="1618082089356" />
+    <state width="1124" height="174" key="GridCell.Tab.0.bottom/0.25.1280.716@0.25.1280.716" timestamp="1618082190831" />
+    <state width="1124" height="174" key="GridCell.Tab.0.bottom/0.25.1280.718@0.25.1280.718" timestamp="1618134998102" />
+    <state width="1124" height="174" key="GridCell.Tab.0.bottom/0.25.1280.719@0.25.1280.719" timestamp="1618137913924" />
     <state width="1124" height="174" key="GridCell.Tab.0.bottom/0.25.1280.720@0.25.1280.720" timestamp="1618004766063" />
-    <state width="1124" height="174" key="GridCell.Tab.0.center" timestamp="1618004766062">
-      <screen x="0" y="25" width="1280" height="720" />
+    <state width="1124" height="174" key="GridCell.Tab.0.bottom/0.25.1280.721@0.25.1280.721" timestamp="1618139421624" />
+    <state width="1124" height="174" key="GridCell.Tab.0.center" timestamp="1618139421623">
+      <screen x="0" y="25" width="1280" height="721" />
     </state>
-    <state width="1124" height="174" key="GridCell.Tab.0.center/0.25.1280.715@0.25.1280.715" timestamp="1617894517469" />
-    <state width="1124" height="174" key="GridCell.Tab.0.center/0.25.1280.716@0.25.1280.716" timestamp="1617898492295" />
+    <state width="1124" height="174" key="GridCell.Tab.0.center/0.25.1280.715@0.25.1280.715" timestamp="1618082089355" />
+    <state width="1124" height="174" key="GridCell.Tab.0.center/0.25.1280.716@0.25.1280.716" timestamp="1618082190830" />
+    <state width="1124" height="174" key="GridCell.Tab.0.center/0.25.1280.718@0.25.1280.718" timestamp="1618134998101" />
+    <state width="1124" height="174" key="GridCell.Tab.0.center/0.25.1280.719@0.25.1280.719" timestamp="1618137913923" />
     <state width="1124" height="174" key="GridCell.Tab.0.center/0.25.1280.720@0.25.1280.720" timestamp="1618004766062" />
-    <state width="1124" height="174" key="GridCell.Tab.0.left" timestamp="1618004766061">
-      <screen x="0" y="25" width="1280" height="720" />
+    <state width="1124" height="174" key="GridCell.Tab.0.center/0.25.1280.721@0.25.1280.721" timestamp="1618139421623" />
+    <state width="1124" height="174" key="GridCell.Tab.0.left" timestamp="1618139421623">
+      <screen x="0" y="25" width="1280" height="721" />
     </state>
-    <state width="1124" height="174" key="GridCell.Tab.0.left/0.25.1280.715@0.25.1280.715" timestamp="1617894517469" />
-    <state width="1124" height="174" key="GridCell.Tab.0.left/0.25.1280.716@0.25.1280.716" timestamp="1617898492294" />
+    <state width="1124" height="174" key="GridCell.Tab.0.left/0.25.1280.715@0.25.1280.715" timestamp="1618082089354" />
+    <state width="1124" height="174" key="GridCell.Tab.0.left/0.25.1280.716@0.25.1280.716" timestamp="1618082190830" />
+    <state width="1124" height="174" key="GridCell.Tab.0.left/0.25.1280.718@0.25.1280.718" timestamp="1618134998101" />
+    <state width="1124" height="174" key="GridCell.Tab.0.left/0.25.1280.719@0.25.1280.719" timestamp="1618137913922" />
     <state width="1124" height="174" key="GridCell.Tab.0.left/0.25.1280.720@0.25.1280.720" timestamp="1618004766061" />
-    <state width="1124" height="174" key="GridCell.Tab.0.right" timestamp="1618004766063">
-      <screen x="0" y="25" width="1280" height="720" />
+    <state width="1124" height="174" key="GridCell.Tab.0.left/0.25.1280.721@0.25.1280.721" timestamp="1618139421623" />
+    <state width="1124" height="174" key="GridCell.Tab.0.right" timestamp="1618139421624">
+      <screen x="0" y="25" width="1280" height="721" />
     </state>
-    <state width="1124" height="174" key="GridCell.Tab.0.right/0.25.1280.715@0.25.1280.715" timestamp="1617894517470" />
-    <state width="1124" height="174" key="GridCell.Tab.0.right/0.25.1280.716@0.25.1280.716" timestamp="1617898492295" />
+    <state width="1124" height="174" key="GridCell.Tab.0.right/0.25.1280.715@0.25.1280.715" timestamp="1618082089355" />
+    <state width="1124" height="174" key="GridCell.Tab.0.right/0.25.1280.716@0.25.1280.716" timestamp="1618082190831" />
+    <state width="1124" height="174" key="GridCell.Tab.0.right/0.25.1280.718@0.25.1280.718" timestamp="1618134998102" />
+    <state width="1124" height="174" key="GridCell.Tab.0.right/0.25.1280.719@0.25.1280.719" timestamp="1618137913923" />
     <state width="1124" height="174" key="GridCell.Tab.0.right/0.25.1280.720@0.25.1280.720" timestamp="1618004766063" />
+    <state width="1124" height="174" key="GridCell.Tab.0.right/0.25.1280.721@0.25.1280.721" timestamp="1618139421624" />
   </component>
 </project>

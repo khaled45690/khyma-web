@@ -121,21 +121,24 @@ class _DetailVCSeriesState extends State<DetailVCSeries> {
     // https://dog.ceo/api/breeds/list/all
     Map<String, dynamic> testMap = Map<String, dynamic>();
     var myStr = 'https://hwayadesigns.com/ramadan/series/files/oneseries.php?id=' + widget.seriesId.toString();
+    var myStr1 = 'https://hwayadesigns.com/ramadan/series/files/oneseries.php?id=' + widget.seriesId.toString();
     var myUri = Uri.parse(myStr);
+    var myUri1 = Uri.parse(myStr1);
+    print(myUri1);
     final response = await http.get(myUri);
     if (response.statusCode == 200) {
       final jsonResponse = jsonDecode(response.body);
       testMap = jsonResponse;
-      print("================================");
-      print(testMap["message"]);
+      // print("================================");
+      // print(testMap["message"]);
       jsonResponse["message"].forEach((element) {
-        print("================================");
-        print(element["name"]);
+        // print("================================");
+        // print(element["name"]);
 
 
         String video = element["video"].toString();
-        print("================================");
-        print(video);
+        // print("================================");
+        // print(video);
         // print(img);
         tempMeal =
         new series(name: element["name"], image: element["image"], id: element["id"],);
@@ -143,7 +146,7 @@ class _DetailVCSeriesState extends State<DetailVCSeries> {
 
         tempMeal.video = video;
 
-        print(tempMeal.brief);
+        // print(tempMeal.brief);
       });
 
     } else {
