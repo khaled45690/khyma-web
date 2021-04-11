@@ -122,13 +122,13 @@ class _DetailVCSeriesState extends State<DetailVCSeries> {
     // https://dog.ceo/api/breeds/list/all
     Map<String, dynamic> testMap = Map<String, dynamic>();
     var myStr = 'https://hwayadesigns.com/ramadan/series/files/oneseries.php?id=' + widget.seriesId.toString();
-    var myStr1 = 'https://hwayadesigns.com/ramadan/series/files/oneseries.php?id=' + widget.seriesId.toString();
     var myUri = Uri.parse(myStr);
-    var myUri1 = Uri.parse(myStr1);
-    print(myUri1);
+
     final response = await http.get(myUri);
     if (response.statusCode == 200) {
       final jsonResponse = jsonDecode(response.body);
+      print("--------------------=====================================>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+      print(jsonResponse["message"][0]);
       testMap = jsonResponse;
       // print("================================");
       // print(testMap["message"]);

@@ -47,7 +47,7 @@ class _DetailVCFoodState extends State<DetailVCFood> {
 
   @override
   Widget build(BuildContext context) {
-    print(widget.myMeal.id);
+    // print(widget.myMeal.id);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFF1D1D1D),
@@ -74,7 +74,7 @@ class _DetailVCFoodState extends State<DetailVCFood> {
                     error,
                     stackTrace,
                     ) {
-                  print(error); //do something
+                  // print(error); //do something
                   return Image.asset("images/no-image.png");
                 },
                 loadingBuilder: (BuildContext context,
@@ -183,15 +183,15 @@ class _DetailVCFoodState extends State<DetailVCFood> {
     if (response.statusCode == 200) {
       final jsonResponse = jsonDecode(response.body);
       testMap = jsonResponse;
-      print(testMap["message"]);
+      // print(testMap["message"]);
       jsonResponse["message"].forEach((element) {
-        print(element["name"]);
+        // print(element["name"]);
         var imgs = jsonDecode(element["images"]);
         var img = imgs[0];
         var videos = jsonDecode(element["videos"]);
         String video = videos[0].toString();
-        print("================================");
-        print(video);
+        // print("================================");
+        // print(video);
         // print(img);
         tempMeal =
         new meal(name: element["name"], image: img, id: element["id"],);
@@ -199,7 +199,7 @@ class _DetailVCFoodState extends State<DetailVCFood> {
         tempMeal.makeHealthy = element["makeHealthy"];
         tempMeal.video = video;
 
-        print(tempMeal.recipe);
+        // print(tempMeal.recipe);
       });
 
     } else {

@@ -132,7 +132,7 @@ class _HomePageState extends State<HomePage> {
                                 error,
                                 stackTrace,
                               ) {
-                                print(error); //do something
+                                // print(error); //do something
                                 return Image.asset("images/no-image.png");
                               },
                               loadingBuilder: (BuildContext context,
@@ -245,9 +245,9 @@ class _HomePageState extends State<HomePage> {
     if (response.statusCode == 200) {
       final jsonResponse = jsonDecode(response.body);
       testMap = jsonResponse;
-      print(testMap["message"]);
+      // print(testMap["message"]);
       jsonResponse["message"].forEach((element) {
-        print(element["name"]);
+        // print(element["name"]);
         var imgs = jsonDecode(element["images"]);
         var img = imgs[0];
         // print(img);
@@ -257,7 +257,7 @@ class _HomePageState extends State<HomePage> {
       });
 
       myTempMeals.forEach((element) {
-        print(element.name);
+        // print(element.name);
       });
     } else {
       throw Exception("Failed to load Dogs Breeds.");
