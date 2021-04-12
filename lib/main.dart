@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sanus/khaled/Screens/MainScreen.dart';
 import 'package:sanus/khaled/Screens/QuranScreen.dart';
 import 'HomePage.dart';
 import 'package:sanus/BackGroundTemplate.dart';
@@ -83,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
             MaterialPageRoute(
                 builder: (context) => BackGroundTemplate(
                       title: "ddddd",
-                      SubVC: HomePageFood(dbUrl: 'https://elkhyma.com/ramadan/meals/files/meals.php', title: "Meals",),
+                      SubVC: MainScreen(),
                     )),
           );
         },

@@ -121,104 +121,59 @@ class _PrayerTimesState extends State<PrayerTimes> {
               ],
             ),
             Container(// calindar
-              child: Row(
-                children: [
-              IconButton(
-              onPressed: () async {
-                DateTime startDate;
-                DateTime endDate;
-                final picked = await showDateRangePicker(
-                  context: context,
-                    locale : const Locale("ar","AR"),
-                  lastDate: DateTime(2030),
-                  firstDate: new DateTime(2019),
-                  textDirection: TextDirection.rtl,
+              child: IconButton(
+                icon: Icon(
+                  Icons.calendar_today,
+                  color: Colors.white,
+                ),
+                onPressed: () async {
+                  selectedDate = await showDatePicker(
+                      context: context,
+                      locale : const Locale("ar"),
+                      initialDate: DateTime.now(),
+                      firstDate: DateTime(2018),
+                      lastDate: DateTime(2030),
+                      helpText: "",
+                      // useRootNavigator: true,
+                      // routeSettings: routeSettings,
+                      textDirection: TextDirection.rtl,
+                      builder: (BuildContext context, Widget child) {
+                        return Theme(
+                          data: Theme.of(context).copyWith(
+                            textTheme: Theme.of(context).textTheme.apply(
+                                fontSizeFactor: 0.9,
+                              fontFamily: "Roboto",
 
-                  builder: (BuildContext context, Widget child){
-                    return Theme(
-                      data: Theme.of(context).copyWith(
-                        textTheme: Theme.of(context).textTheme.apply(
-                          fontSizeFactor: 0.9
-                        ),
-                        colorScheme: ColorScheme.light(
-                          // secondary: Colors.pink,
-                          // onBackground: Colors.pink,
-                          primary: Color(0xFFD83D3A), // dialogue label bg and selected numbers
-                          onPrimary: Colors.white,  // on selected numbers
-                          // surface: Colors.white,
-                          onSurface: Colors.white, // days and months
-                        ),
-                        dialogBackgroundColor:Colors.white, // dialogue background
-                        primaryColor: Color(0xFFD83D3A), // header color and dialogue selected text
-                        scaffoldBackgroundColor: Colors.white,
-                      ),
-                      child: child,
-                    );
-                }
-                );
-                if (picked != null && picked != null) {
-                  print(picked);
+                            ),
+                            // primaryTextTheme: ,
+
+                            colorScheme: ColorScheme.light(
+                              // secondary: Colors.pink,
+                              // onBackground: Colors.pink,
+                              primary: Color(0xFFD83D3A), // dialogue label bg and selected numbers
+                              onPrimary: Colors.white,  // on selected numbers
+                              // surface: Colors.white,
+                              onSurface: Colors.white, // days and months
+                            ),
+                            dialogBackgroundColor:Colors.grey, // dialogue background
+                            primaryColor: Color(0xFFD83D3A), // header color and dialogue selected text
+                            scaffoldBackgroundColor: Colors.white,
+                          ),
+                          child: Directionality(
+                              textDirection: TextDirection.ltr,
+                              child: child
+                          ),
+                        );
+                      }
+                  );
                   setState(() {
-                    startDate = picked.start;
-                    endDate = picked.end;
-//below have methods that runs once a date range is picked
-
+                    if (selectedDate == null){
+                      selectedDate = DateTime.now();
+                    }
+                    _fetchMonthPrayers();
+                    selectedDateStr =  "${selectedDate.year.toString()}-${selectedDate.month.toString().padLeft(2,'0')}-${selectedDate.day.toString().padLeft(2,'0')} ";
                   });
-                }
-              },
-              icon: Icon(
-                Icons.calendar_today,
-                color: Colors.white,
-              ),
-            ),
-
-                  OutlinedButton(
-                    child: Text('تغيير التاريخ', style: (TextStyle(color: Colors.white)),),
-                    onPressed: () async {
-                      selectedDate = await showDatePicker(
-                          context: context,
-                          locale : const Locale("ar","AR"),
-                          initialDate: DateTime.now(),
-                          firstDate: DateTime(2018),
-                          lastDate: DateTime(2030),
-                          // useRootNavigator: true,
-                          // routeSettings: routeSettings,
-                          textDirection: TextDirection.rtl,
-                          builder: (BuildContext context, Widget child) {
-                            return Theme(
-                              data: Theme.of(context).copyWith(
-                                textTheme: Theme.of(context).textTheme.apply(
-                                    fontSizeFactor: 0.9,
-
-                                ),
-                                // primaryTextTheme: ,
-
-                                colorScheme: ColorScheme.light(
-                                  // secondary: Colors.pink,
-                                  // onBackground: Colors.pink,
-                                  primary: Color(0xFFD83D3A), // dialogue label bg and selected numbers
-                                  onPrimary: Colors.white,  // on selected numbers
-                                  // surface: Colors.white,
-                                  onSurface: Colors.white, // days and months
-                                ),
-                                dialogBackgroundColor:Colors.grey, // dialogue background
-                                primaryColor: Color(0xFFD83D3A), // header color and dialogue selected text
-                                scaffoldBackgroundColor: Colors.white,
-                              ),
-                              child: child,
-                            );
-                          }
-                      );
-                      setState(() {
-                        if (selectedDate == null){
-                          selectedDate = DateTime.now();
-                        }
-                        _fetchMonthPrayers();
-                        selectedDateStr =  "${selectedDate.year.toString()}-${selectedDate.month.toString().padLeft(2,'0')}-${selectedDate.day.toString().padLeft(2,'0')} ";
-                      });
-                    },
-                  ),
-                ],
+                },
               )
 
             ),

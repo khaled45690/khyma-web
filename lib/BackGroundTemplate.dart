@@ -166,24 +166,24 @@ class _BackGroundTemplateState extends State<BackGroundTemplate>
                       selected: _selectedDestination == 5,
                       onTap: () => selectDestination(5),
                     ),
-                    ListTile(
-                      trailing: Icon(Icons.content_paste_sharp),
-                      title: Text(
-                        'خطة اليوم',
-                        textDirection: TextDirection.rtl,
-                      ),
-                      selected: _selectedDestination == 6,
-                      onTap: () => selectDestination(6),
-                    ),
-                    ListTile(
-                      trailing: Icon(Icons.settings_outlined),
-                      title: Text(
-                        'الإعدادات',
-                        textDirection: TextDirection.rtl,
-                      ),
-                      selected: _selectedDestination == 7,
-                      onTap: () => selectDestination(7),
-                    ),
+                    // ListTile(
+                    //   trailing: Icon(Icons.content_paste_sharp),
+                    //   title: Text(
+                    //     'خطة اليوم',
+                    //     textDirection: TextDirection.rtl,
+                    //   ),
+                    //   selected: _selectedDestination == 6,
+                    //   onTap: () => selectDestination(6),
+                    // ),
+                    // ListTile(
+                    //   trailing: Icon(Icons.settings_outlined),
+                    //   title: Text(
+                    //     'الإعدادات',
+                    //     textDirection: TextDirection.rtl,
+                    //   ),
+                    //   selected: _selectedDestination == 7,
+                    //   onTap: () => selectDestination(7),
+                    // ),
                   ],
                 ),
               ),
