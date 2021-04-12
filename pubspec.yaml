@@ -59,6 +59,8 @@ flutter:
   assets:
     - images/no-image.png
     - images/tent.jpg
+    - ad-space.gif
+    - Icon-192.jpg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

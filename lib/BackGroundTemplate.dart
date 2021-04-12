@@ -49,26 +49,28 @@ class _BackGroundTemplateState extends State<BackGroundTemplate>
         backgroundColor: Color(0xFFD83D3A),
         iconTheme: IconThemeData(color: Colors.white),
         elevation: 0,
-        title: Row(children: [
-          // Checkbox(
-          //   value: checkedVal,
-          //   onChanged: (newValue) {
-          //     setState(() {
-          //       checkedVal = newValue;
-          //     });
-          //   },
-          //   checkColor: Color(0xFFFFFFFF),
-          //   activeColor: Color(0xFFAD411F),
-          // ),
-          // IconButton(
-          //   icon: Icon(
-          //     Icons.ios_share,
-          //   ),
-          //   onPressed: () {
-          //     // do something
-          //   },
-          // ),
-        ]),
+        title:  Text("الخيمة", textScaleFactor: 2, )
+        // Row(children: [
+        //
+        //   // Checkbox(
+        //   //   value: checkedVal,
+        //   //   onChanged: (newValue) {
+        //   //     setState(() {
+        //   //       checkedVal = newValue;
+        //   //     });
+        //   //   },
+        //   //   checkColor: Color(0xFFFFFFFF),
+        //   //   activeColor: Color(0xFFAD411F),
+        //   // ),
+        //   // IconButton(
+        //   //   icon: Icon(
+        //   //     Icons.ios_share,
+        //   //   ),
+        //   //   onPressed: () {
+        //   //     // do something
+        //   //   },
+        //   // ),
+        // ]),
       ),
       endDrawer: BackdropFilter(
         filter: new ImageFilter.blur(sigmaY: 10, sigmaX: 10),
@@ -198,7 +200,7 @@ class _BackGroundTemplateState extends State<BackGroundTemplate>
         Container(
           //clipBehavior: Clip.none,
           child: Padding(
-            padding: const EdgeInsets.only(top: 50.0),
+            padding: const EdgeInsets.only(top: 10.0),
             child: new ClipRRect(
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20), topRight: Radius.circular(20)),

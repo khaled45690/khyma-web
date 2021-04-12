@@ -48,6 +48,13 @@ class _HomePageState extends State<HomePage> {
               Expanded(
                 flex: 1,
                 child: _mainData(),
+              ),
+              Center(
+                child: Container(
+
+                  height: 50,
+                  child: Image.asset("images/ad-space.gif"),
+                ),
               )
             ],
           ),

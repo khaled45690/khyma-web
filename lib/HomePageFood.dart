@@ -57,6 +57,13 @@ class _HomePageFoodState extends State<HomePageFood> {
               Expanded(
                 flex: 1,
                 child: _mainData(),
+              ),
+              Center(
+                child: Container(
+
+                  height: 50,
+                  child: Image.asset("images/ad-space.gif"),
+                ),
               )
             ],
           ),
@@ -122,8 +129,9 @@ class _HomePageFoodState extends State<HomePageFood> {
                   });
                 }, child: Text("الكل"),),
               ),
+
             ],
-          )
+          ),
         ],
       ),
     );
