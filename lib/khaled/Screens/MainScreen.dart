@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:sanus/BackGroundTemplate.dart';
+import 'package:sanus/HomePage.dart';
+import 'package:sanus/HomePageFood.dart';
 import 'package:sanus/khaled/Screens/FoodHorizontalScreen.dart';
 import 'package:sanus/khaled/Screens/PlacesScreen.dart';
 import 'package:sanus/khaled/Screens/SeriesScreen.dart';
@@ -20,17 +22,56 @@ class _MainScreenState extends State<MainScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Container(
-                    margin: EdgeInsets.all(15),
-                    child: Text("تاكل ايه؟" , style: TextStyle(color: Colors.red , fontSize: 22),)),
+                InkWell(
+                  onTap: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => BackGroundTemplate(
+                            title: "Meals",
+                            SubVC: HomePageFood(dbUrl: 'https://elkhyma.com/ramadan/meals/files/meals.php',title: "Meals",),
+                          )
+                      ),
+                    );
+                  },
+                  child: Container(
+                      margin: EdgeInsets.all(15),
+                      child: Text("تاكل ايه؟" , style: TextStyle(color: Colors.red , fontSize: 22),)),
+                ),
                 FoodHorizontalScreen(),
-                Container(
-                    margin: EdgeInsets.all(15),
-                    child: Text("تشوف ايه؟" , style: TextStyle(color: Colors.red , fontSize: 22),)),
+                InkWell(
+                  onTap: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => BackGroundTemplate(
+                            title: "Series",
+                            SubVC: HomePage(dbUrl: 'https://elkhyma.com/ramadan/series/files/series.php',title: "Series",),
+                          )
+                      ),
+                    );
+                  },
+                  child: Container(
+                      margin: EdgeInsets.all(15),
+                      child: Text("تشوف ايه؟" , style: TextStyle(color: Colors.red , fontSize: 22),)),
+                ),
                 SeriesScreen(),
-                Container(
-                    margin: EdgeInsets.all(15),
-                    child: Text("تروح فين؟" , style: TextStyle(color: Colors.red , fontSize: 22),)),
+                InkWell(
+                  onTap: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => BackGroundTemplate(
+                            title: "Places",
+                            SubVC: HomePage(dbUrl: 'https://elkhyma.com/ramadan/places/files/places.php',title: "Places",),
+                          )
+                      ),
+                    );
+                  },
+                  child: Container(
+                      margin: EdgeInsets.all(15),
+                      child: Text("تروح فين؟" , style: TextStyle(color: Colors.red , fontSize: 22),)),
+                ),
                 PlacesScreen(),
                 SizedBox(height: 50,),
               ],
