@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image.asset("images/tent.png",fit: BoxFit.fill, height: MediaQuery.of(context).size.height,width: MediaQuery.of(context).size.width),
+            Image.asset("images/tent.jpg",fit: BoxFit.fill, height: MediaQuery.of(context).size.height,width: MediaQuery.of(context).size.width),
             // ),
           ],
         ),
