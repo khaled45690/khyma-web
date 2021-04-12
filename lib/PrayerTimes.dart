@@ -192,6 +192,7 @@ class _PrayerTimesState extends State<PrayerTimes> {
 
                                 ),
                                 // primaryTextTheme: ,
+
                                 colorScheme: ColorScheme.light(
                                   // secondary: Colors.pink,
                                   // onBackground: Colors.pink,
