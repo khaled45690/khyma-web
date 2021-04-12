@@ -1,6 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:sanus/khaled/Widgets/adSense.dart';
+// import 'package:sanus/khaled/Widgets/adSense.dart';
 import 'main.dart';
 import 'PrayerTimes.dart';
 import 'HomePage.dart';
@@ -194,7 +194,7 @@ class _BackGroundTemplateState extends State<BackGroundTemplate>
       body: Stack(children: [
         // Container(color: Colors.amber, width: 50, height: 50),
         // here was the yellow box ⬆︎
-        adsenseAdsView(),
+        // adsenseAdsView(),
         Container(
           //clipBehavior: Clip.none,
           child: Padding(

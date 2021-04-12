@@ -47,7 +47,7 @@ searchAlert(context, swarNames , onSubmit) {
               onSelectedItemChanged: (int value){onSelectItem = value;},
               children: [
                 for (int i = 0; i < swarNames.length; i++)
-                  Center(child: Text(swarNames[i]))
+                  Center(child: Text(swarNames[i], textDirection: TextDirection.rtl,))
               ]),
         ),
         actions: [
