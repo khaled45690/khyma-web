@@ -13,6 +13,7 @@ class PrayerTimes extends StatefulWidget {
 }
 
 class _PrayerTimesState extends State<PrayerTimes> {
+  RouteSettings routeSettings;
   List<DayPrayers> monthPrayers = <DayPrayers>[];
   bool isLoading = false;
   DateTime selectedDate = DateTime.now();
@@ -120,30 +121,103 @@ class _PrayerTimesState extends State<PrayerTimes> {
               ],
             ),
             Container(// calindar
-              child: OutlinedButton(
-                child: Text('تغيير التاريخ', style: (TextStyle(color: Colors.white)),),
-                onPressed: () async {
-                  selectedDate = await showDatePicker(
-                      context: context,
-                      locale : const Locale("ar","AR"),
-                      initialDate: DateTime.now(),
-                      firstDate: DateTime(2018),
-                      lastDate: DateTime(2030),
-                      builder: (BuildContext context, Widget child) {
-                        return Theme(
-                          data: ThemeData.dark(),
-                          child: child,
-                        );
-                      }
-                  );
+              child: Row(
+                children: [
+              IconButton(
+              onPressed: () async {
+                DateTime startDate;
+                DateTime endDate;
+                final picked = await showDateRangePicker(
+                  context: context,
+                    locale : const Locale("ar","AR"),
+                  lastDate: DateTime(2030),
+                  firstDate: new DateTime(2019),
+                  textDirection: TextDirection.rtl,
+
+                  builder: (BuildContext context, Widget child){
+                    return Theme(
+                      data: Theme.of(context).copyWith(
+                        textTheme: Theme.of(context).textTheme.apply(
+                          fontSizeFactor: 0.9
+                        ),
+                        colorScheme: ColorScheme.light(
+                          // secondary: Colors.pink,
+                          // onBackground: Colors.pink,
+                          primary: Color(0xFFD83D3A), // dialogue label bg and selected numbers
+                          onPrimary: Colors.white,  // on selected numbers
+                          // surface: Colors.white,
+                          onSurface: Colors.white, // days and months
+                        ),
+                        dialogBackgroundColor:Colors.white, // dialogue background
+                        primaryColor: Color(0xFFD83D3A), // header color and dialogue selected text
+                        scaffoldBackgroundColor: Colors.white,
+                      ),
+                      child: child,
+                    );
+                }
+                );
+                if (picked != null && picked != null) {
+                  print(picked);
                   setState(() {
-                    if (selectedDate == null){
-                      selectedDate = DateTime.now();
-                    }
-                    _fetchMonthPrayers();
-                    selectedDateStr =  "${selectedDate.year.toString()}-${selectedDate.month.toString().padLeft(2,'0')}-${selectedDate.day.toString().padLeft(2,'0')} ";
+                    startDate = picked.start;
+                    endDate = picked.end;
+//below have methods that runs once a date range is picked
+
                   });
-                },
+                }
+              },
+              icon: Icon(
+                Icons.calendar_today,
+                color: Colors.white,
+              ),
+            ),
+
+                  OutlinedButton(
+                    child: Text('تغيير التاريخ', style: (TextStyle(color: Colors.white)),),
+                    onPressed: () async {
+                      selectedDate = await showDatePicker(
+                          context: context,
+                          locale : const Locale("ar","AR"),
+                          initialDate: DateTime.now(),
+                          firstDate: DateTime(2018),
+                          lastDate: DateTime(2030),
+                          // useRootNavigator: true,
+                          // routeSettings: routeSettings,
+                          textDirection: TextDirection.rtl,
+                          builder: (BuildContext context, Widget child) {
+                            return Theme(
+                              data: Theme.of(context).copyWith(
+                                textTheme: Theme.of(context).textTheme.apply(
+                                    fontSizeFactor: 0.9,
+
+                                ),
+                                // primaryTextTheme: ,
+                                colorScheme: ColorScheme.light(
+                                  // secondary: Colors.pink,
+                                  // onBackground: Colors.pink,
+                                  primary: Color(0xFFD83D3A), // dialogue label bg and selected numbers
+                                  onPrimary: Colors.white,  // on selected numbers
+                                  // surface: Colors.white,
+                                  onSurface: Colors.white, // days and months
+                                ),
+                                dialogBackgroundColor:Colors.grey, // dialogue background
+                                primaryColor: Color(0xFFD83D3A), // header color and dialogue selected text
+                                scaffoldBackgroundColor: Colors.white,
+                              ),
+                              child: child,
+                            );
+                          }
+                      );
+                      setState(() {
+                        if (selectedDate == null){
+                          selectedDate = DateTime.now();
+                        }
+                        _fetchMonthPrayers();
+                        selectedDateStr =  "${selectedDate.year.toString()}-${selectedDate.month.toString().padLeft(2,'0')}-${selectedDate.day.toString().padLeft(2,'0')} ";
+                      });
+                    },
+                  ),
+                ],
               )
 
             ),
@@ -198,7 +272,7 @@ class _PrayerTimesState extends State<PrayerTimes> {
     print(month);
     Map<String, dynamic> testMap = Map<String, dynamic>();
     // https://khyma.hwayadesigns.com/prayers.php?year=2021&month=4
-    var myStr = 'https://khyma.hwayadesigns.com/prayers.php?year='+year+'&month='+month;
+    var myStr = 'https://elkhyma.com/ramadan/prayers.php?year='+year+'&month='+month;
     // var myStr = 'http://api.aladhan.com/v1/calendarByCity?city=CAIRO&country=EGYPT&method=5&year='+year+'&month='+month;
     var myUri = Uri.parse(myStr);
     final response = await http.get(myUri);

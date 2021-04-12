@@ -9,6 +9,7 @@ import 'package:sanus/BackGroundTemplate.dart';
 import 'package:flutter/services.dart';
 import 'NotificationServices.dart';
 import 'HomePageFood.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,7 +23,16 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'الخيمة',
       // localizationsDelegates: [GlobalMaterialLocalizations.delegate],
-      supportedLocales: [const Locale('en'), const Locale('fr')],
+
+          localizationsDelegates: [
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+
+          // ...
+
+      supportedLocales: [const Locale('en'), const Locale('ar')],
       theme: ThemeData(
         fontFamily: "STC",
 
@@ -73,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
             MaterialPageRoute(
                 builder: (context) => BackGroundTemplate(
                       title: "ddddd",
-                      SubVC: HomePageFood(dbUrl: 'https://hwayadesigns.com/ramadan/meals/files/meals.php', title: "Meals",),
+                      SubVC: HomePageFood(dbUrl: 'https://elkhyma.com/ramadan/meals/files/meals.php', title: "Meals",),
                     )),
           );
         },

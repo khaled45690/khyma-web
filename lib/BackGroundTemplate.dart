@@ -239,7 +239,7 @@ class _BackGroundTemplateState extends State<BackGroundTemplate>
           MaterialPageRoute(
               builder: (context) => BackGroundTemplate(
                 title: "Meals",
-                SubVC: HomePageFood(dbUrl: 'https://hwayadesigns.com/ramadan/meals/files/meals.php',title: "Meals",),
+                SubVC: HomePageFood(dbUrl: 'https://elkhyma.com/ramadan/meals/files/meals.php',title: "Meals",),
               )),
         );
         break;
@@ -249,7 +249,7 @@ class _BackGroundTemplateState extends State<BackGroundTemplate>
           MaterialPageRoute(
               builder: (context) => BackGroundTemplate(
                 title: "Places",
-                SubVC: HomePage(dbUrl: 'https://hwayadesigns.com/ramadan/places/files/places.php',title: "Places",),
+                SubVC: HomePage(dbUrl: 'https://elkhyma.com/ramadan/places/files/places.php',title: "Places",),
               )),
         );
         break;
@@ -259,7 +259,7 @@ class _BackGroundTemplateState extends State<BackGroundTemplate>
           MaterialPageRoute(
               builder: (context) => BackGroundTemplate(
                 title: "Places",
-                SubVC: HomePage(dbUrl: 'https://hwayadesigns.com/ramadan/series/files/series.php',title: "Series",),
+                SubVC: HomePage(dbUrl: 'https://elkhyma.com/ramadan/series/files/series.php',title: "Series",),
               )),
         );
         break;

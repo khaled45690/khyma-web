@@ -144,7 +144,7 @@ class _DetailVCSeriesState extends State<DetailVCSeries> {
     // http://localhost:8888/ramadan.php
     // https://dog.ceo/api/breeds/list/all
     Map<String, dynamic> testMap = Map<String, dynamic>();
-    var myStr = 'https://hwayadesigns.com/ramadan/series/files/oneseries.php?id=' + widget.seriesId.toString();
+    var myStr = 'https://elkhyma.com/ramadan/series/files/oneseries.php?id=' + widget.seriesId.toString();
     var myUri = Uri.parse(myStr);
 
     final response = await http.get(myUri);

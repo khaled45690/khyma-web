@@ -177,7 +177,7 @@ class _DetailVCFoodState extends State<DetailVCFood> {
     // http://localhost:8888/ramadan.php
     // https://dog.ceo/api/breeds/list/all
     Map<String, dynamic> testMap = Map<String, dynamic>();
-    var myStr = 'https://hwayadesigns.com/ramadan/meals/files/onemeal.php?id=' + widget.mealId.toString();
+    var myStr = 'https://elkhyma.com/ramadan/meals/files/onemeal.php?id=' + widget.mealId.toString();
     var myUri = Uri.parse(myStr);
     final response = await http.get(myUri);
     if (response.statusCode == 200) {

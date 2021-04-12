@@ -178,7 +178,7 @@ class _DetailVCPlacesState extends State<DetailVCPlaces> {
     // http://localhost:8888/ramadan.php
     // https://dog.ceo/api/breeds/list/all
     Map<String, dynamic> testMap = Map<String, dynamic>();
-    var myStr = 'https://hwayadesigns.com/ramadan/places/files/oneplace.php?id=' + widget.placeId.toString();
+    var myStr = 'https://elkhyma.com/ramadan/places/files/oneplace.php?id=' + widget.placeId.toString();
     var myUri = Uri.parse(myStr);
     final response = await http.get(myUri);
     if (response.statusCode == 200) {
