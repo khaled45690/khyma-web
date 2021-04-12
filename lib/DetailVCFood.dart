@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 import 'PrayerTimesData.dart';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
@@ -153,11 +153,18 @@ class _DetailVCFoodState extends State<DetailVCFood> {
               Text(widget.myMeal.makeHealthy.toString(), textDirection: TextDirection.rtl,style: TextStyle(
                 color: Colors.white,
               ),),
+              SizedBox(height: 30,),
+              Text("  فيديو طريقة العمل:", textDirection: TextDirection.rtl,
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.white,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
               Padding(
                 padding: const EdgeInsets.only(top: 10.0),
-                child: YoutubePlayer(
+                child: YoutubePlayerIFrame(
                   controller: _controller,
-                  showVideoProgressIndicator: true,
                 ),
               ),
 
@@ -210,9 +217,13 @@ class _DetailVCFoodState extends State<DetailVCFood> {
 
       _controller = YoutubePlayerController(
           initialVideoId: tempMeal.video,
-          flags: const YoutubePlayerFlags(
+          params: const YoutubePlayerParams(
             autoPlay: false,
+            showControls: true,
           )
+        // flags: const YoutubePlayerFlags(
+        //   autoPlay: false,
+        // )
       );
       isLoading = false;
     });
