@@ -14,7 +14,7 @@ class DropdownWidget extends StatelessWidget {
       padding: EdgeInsets.only(top: 0),
       width: width,
       child: Directionality(
-        textDirection: TextDirection.ltr,
+        textDirection: TextDirection.rtl,
         child: DropdownButton<String>(
           underline: Container(
             child: Divider(

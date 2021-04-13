@@ -292,7 +292,7 @@ onChange(value){
     // print(month);
     Map<String, dynamic> testMap = Map<String, dynamic>();
     // https://khyma.hwayadesigns.com/prayers.php?year=2021&month=4
-    var myStr = 'https://elkhyma.com/ramadan/prayers.php?year='+year+'&month='+month+'&city='+data[cityValue];
+    var myStr = 'https://elkhyma.com/ramadan/prayers2.php?year='+year+'&month='+month+'&city='+data[cityValue];
     print(myStr);
     // var myStr = 'http://api.aladhan.com/v1/calendarByCity?city=CAIRO&country=EGYPT&method=5&year='+year+'&month='+month;
     var myUri = Uri.parse(myStr);
