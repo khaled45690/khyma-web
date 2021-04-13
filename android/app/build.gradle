@@ -30,7 +30,7 @@ def keystorePropertiesFile = rootProject.file('key.properties')
 if (keystorePropertiesFile.exists()) {
     keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 }
-
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 30
