@@ -11,6 +11,8 @@ import 'package:flutter/services.dart';
 import 'NotificationServices.dart';
 import 'HomePageFood.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:web_browser_detect/web_browser_detect.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -20,6 +22,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final browser = Browser();
+    print('${browser.browser} ${browser.version}');
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'الخيمة',

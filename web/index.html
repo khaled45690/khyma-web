@@ -30,6 +30,7 @@
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
+  <div id="PWA"  style="color:white; position:absolute; z-index: 9999;"></div>
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
@@ -39,6 +40,37 @@
         navigator.serviceWorker.register('flutter_service_worker.js');
       });
     }
+  </script>
+  <script>
+     let deferredPrompt;
+    var button = document.createElement("button");
+    button.innerHTML = "قم بتثبيت التطبيق";
+    button.id = "pwaButton";
+    button.style.width = "160px";
+    button.style.height = "50px";
+    button.style.fontSize = "17px";
+    button.style.textAlign = "center";
+    button.style.textDecorationColor = "white";
+    button.style.borderRadius = "25px";
+
+    button.addEventListener("click" , ()=>{
+      deferredPrompt.prompt();
+      document.getElementById("PWA").removeChild(button);
+    });
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      // Prevent the mini-infobar from appearing on mobile
+      e.preventDefault();
+      // Stash the event so it can be triggered later.
+      deferredPrompt = e;
+      // Update UI notify the user they can install the PWA
+
+      // Optionally, send analytics event that PWA install promo was shown.
+      document.getElementById("PWA").appendChild(button);
+      document.getElementById("PWA").style.bottom = "10px";
+    });
+
+
   </script>
   <script src="main.dart.js" type="application/javascript"></script>
 </body>

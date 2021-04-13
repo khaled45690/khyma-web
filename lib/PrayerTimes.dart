@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sanus/DayPrayers.dart';
+import 'package:sanus/khaled/Widgets/DropDownWidget.dart';
 import 'PrayerTimesData.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -18,6 +19,8 @@ class _PrayerTimesState extends State<PrayerTimes> {
   bool isLoading = false;
   DateTime selectedDate = DateTime.now();
   String selectedDateStr = "";
+  List<String> cityList = ["الاسكندرية" , "القاهرة"];
+  String cityValue = "الاسكندرية";
   @override
   void initState() {
     var myPrayer = Prayer("gg","gg");
@@ -112,21 +115,19 @@ class _PrayerTimesState extends State<PrayerTimes> {
                 ),
               ),
             ),
-            Row( // select city and country
+            Row(
+              textDirection: TextDirection.rtl,
               children: [
                 Spacer(),
-                Text("الأسكندرية", textDirection: TextDirection.rtl,  style: (TextStyle(color: Colors.white))),
                 Text("حسب التوقيت المحلي لمدينة: ", textDirection: TextDirection.rtl, style: (TextStyle(color: Colors.white))),
+                DropdownWidget(cityValue , cityList , 100 , 20 , (value){}),
                 Spacer(),
               ],
             ),
             Container(// calindar
-              child: IconButton(
-                icon: Icon(
-                  Icons.calendar_today,
-                  color: Colors.white,
-                ),
-                onPressed: () async {
+              child: InkWell(
+                child: Text("تغير التاريخ" , style: TextStyle(color: Colors.white ,),),
+                onTap: () async {
                   selectedDate = await showDatePicker(
                       context: context,
                       locale : const Locale("ar"),
