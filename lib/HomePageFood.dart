@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
+import 'package:sanus/khaled/Widgets/DropDownWidget.dart';
 import 'dart:convert';
 import 'DetailVCFood.dart';
 import 'DetailVCSeries.dart';
@@ -18,11 +19,9 @@ class HomePageFood extends StatefulWidget {
   final String title;
   HomePageFood({Key key, this.dbUrl, this.title}) : super(key: key);
   _HomePageFoodState createState() => _HomePageFoodState();
-
 }
 
 class _HomePageFoodState extends State<HomePageFood> {
-
   // admob start  ----------------------------------------------
   final BannerAd myBanner = BannerAd(
     adUnitId: 'ca-app-pub-3940256099942544/8865242552',
@@ -48,7 +47,6 @@ class _HomePageFoodState extends State<HomePageFood> {
   );
   // admob end  ----------------------------------------------
 
-
   bool isLoading = false;
   bool checkedVal = false;
   List<meal> myTempMeals = <meal>[];
@@ -59,6 +57,8 @@ class _HomePageFoodState extends State<HomePageFood> {
   List<meal> myTempSortedDrinks = <meal>[];
   List<meal> myTempSortedAll = <meal>[];
   List<meal> currentList = <meal>[];
+  List<String> dropDownValues = ["الكل", "حلويات", "وجبات", "مشروبات"];
+  String dropDownValue = "الكل";
   final myController = TextEditingController();
 
   @override
@@ -97,10 +97,9 @@ class _HomePageFoodState extends State<HomePageFood> {
               ),
               Center(
                 child: Container(
-
                   height: 50,
-                  child:  // admob start  ----------------------------------------------
-                  Container(
+                  child: // admob start  ----------------------------------------------
+                      Container(
                     alignment: Alignment.center,
                     child: AdWidget(ad: myBanner),
                     width: myBanner.size.width.toDouble(),
@@ -131,52 +130,64 @@ class _HomePageFoodState extends State<HomePageFood> {
               _filterDogList(text);
             },
           ),
-          Row(
-            children: [
-              Spacer(),
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0),
-                child: OutlinedButton(onPressed: (){
-                  setState(() {
-                    mealsList = myTempSortedDrinks;
-                    currentList = myTempSortedDrinks;
-                    myController.text = "";
-                  });
-                }, child: Text("مشروبات"),),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0),
-                child: OutlinedButton(onPressed: (){
-                  setState(() {
-                    mealsList = myTempSortedFoods;
-                    currentList = myTempSortedFoods;
-                    myController.text = "";
-                  });
-                }, child: Text("وجبات"),),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0),
-                child: OutlinedButton(onPressed: (){
-                  setState(() {
-                    mealsList = myTempSortedSweets;
-                    currentList = myTempSortedSweets;
-                    myController.text = "";
-                  });
-                }, child: Text("حلويات"),),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0),
-                child: OutlinedButton(onPressed: (){
-                  setState(() {
-                    mealsList = myTempSortedAll;
-                    currentList = myTempSortedAll;
-                    myController.text = "";
-                  });
-                }, child: Text("الكل"),),
-              ),
-
-            ],
-          ),
+          DropdownWidget(dropDownValue, dropDownValues, 100, 22, Colors.black ,onChange)
+          // Row(
+          //   children: [
+          //     Spacer(),
+          //     Padding(
+          //       padding: const EdgeInsets.only(left: 8.0),
+          //       child: OutlinedButton(
+          //         onPressed: () {
+          //           setState(() {
+          //             mealsList = myTempSortedDrinks;
+          //             currentList = myTempSortedDrinks;
+          //             myController.text = "";
+          //           });
+          //         },
+          //         child: Text("مشروبات"),
+          //       ),
+          //     ),
+          //     Padding(
+          //       padding: const EdgeInsets.only(left: 8.0),
+          //       child: OutlinedButton(
+          //         onPressed: () {
+          //           setState(() {
+          //             mealsList = myTempSortedFoods;
+          //             currentList = myTempSortedFoods;
+          //             myController.text = "";
+          //           });
+          //         },
+          //         child: Text("وجبات"),
+          //       ),
+          //     ),
+          //     Padding(
+          //       padding: const EdgeInsets.only(left: 8.0),
+          //       child: OutlinedButton(
+          //         onPressed: () {
+          //           setState(() {
+          //             mealsList = myTempSortedSweets;
+          //             currentList = myTempSortedSweets;
+          //             myController.text = "";
+          //           });
+          //         },
+          //         child: Text("حلويات"),
+          //       ),
+          //     ),
+          //     Padding(
+          //       padding: const EdgeInsets.only(left: 8.0),
+          //       child: OutlinedButton(
+          //         onPressed: () {
+          //           setState(() {
+          //             mealsList = myTempSortedAll;
+          //             currentList = myTempSortedAll;
+          //             myController.text = "";
+          //           });
+          //         },
+          //         child: Text("الكل"),
+          //       ),
+          //     ),
+          //   ],
+          // ),
         ],
       ),
     );
@@ -191,101 +202,99 @@ class _HomePageFoodState extends State<HomePageFood> {
       child: isLoading
           ? CircularProgressIndicator()
           : GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: cellsPerRow,
-              childAspectRatio: 1 / cardHeightToWidth),
-          itemCount: mealsList.length,
-          itemBuilder: (context, index) {
-            return InkWell(
-              onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => DetailVCFood(
-                          mealId: mealsList[index].id,
-                          myMeal: mealsList[index],
-
-                        )
-                    ),
-                  );
-              },
-              child: Column(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(8.0),
-                    child: Stack(
-                      children: [
-                        new Image.network(
-                          mealsList[index].image,
-                          errorBuilder: (
-                              context,
-                              error,
-                              stackTrace,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: cellsPerRow,
+                  childAspectRatio: 1 / cardHeightToWidth),
+              itemCount: mealsList.length,
+              itemBuilder: (context, index) {
+                return InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => DetailVCFood(
+                                mealId: mealsList[index].id,
+                                myMeal: mealsList[index],
+                              )),
+                    );
+                  },
+                  child: Column(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: Stack(
+                          children: [
+                            new Image.network(
+                              mealsList[index].image,
+                              errorBuilder: (
+                                context,
+                                error,
+                                stackTrace,
                               ) {
-                            // print(error); //do something
-                            return Image.asset("images/no-image.png");
-                          },
-                          loadingBuilder: (BuildContext context,
-                              Widget child,
-                              ImageChunkEvent loadingProgress) {
-                            if (loadingProgress == null) return child;
-                            return Stack(children: [
-                              SizedBox(
-                                child: CupertinoActivityIndicator(
-                                  animating: true,
-                                ),
-                                width: 50,
-                                height: 50,
-                              ),
-                              SizedBox(
-                                child: CircularProgressIndicator(
-                                  value: loadingProgress
-                                      .expectedTotalBytes !=
-                                      null
-                                      ? loadingProgress
-                                      .cumulativeBytesLoaded /
-                                      loadingProgress.expectedTotalBytes
-                                      : null,
-                                ),
-                              ),
-                            ]);
-                          },
-                          height: cellWidth * cardHeightToWidth - 7,
-                          width: cellWidth,
-                          fit: BoxFit.cover,
-                        ),
-                        Positioned(
-                          bottom: 0,
-                          left: 0,
-                          right: 0,
-                          child: Container(
-                            alignment: Alignment.bottomCenter,
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                  colors: [
-                                    Color(0xFF000000),
-                                    Color(0x00000000)
-                                  ],
-                                  begin: Alignment.bottomCenter,
-                                  end: Alignment.topCenter),
+                                // print(error); //do something
+                                return Image.asset("images/no-image.png");
+                              },
+                              loadingBuilder: (BuildContext context,
+                                  Widget child,
+                                  ImageChunkEvent loadingProgress) {
+                                if (loadingProgress == null) return child;
+                                return Stack(children: [
+                                  SizedBox(
+                                    child: CupertinoActivityIndicator(
+                                      animating: true,
+                                    ),
+                                    width: 50,
+                                    height: 50,
+                                  ),
+                                  SizedBox(
+                                    child: CircularProgressIndicator(
+                                      value: loadingProgress
+                                                  .expectedTotalBytes !=
+                                              null
+                                          ? loadingProgress
+                                                  .cumulativeBytesLoaded /
+                                              loadingProgress.expectedTotalBytes
+                                          : null,
+                                    ),
+                                  ),
+                                ]);
+                              },
+                              height: cellWidth * cardHeightToWidth - 7,
+                              width: cellWidth,
+                              fit: BoxFit.cover,
                             ),
-                            height: 50,
-                            width: MediaQuery.of(context).size.width,
-                            child: Text(mealsList[index].name,
-                                style: TextStyle(color: Colors.white),
-                                textDirection: TextDirection.rtl),
-                          ),
+                            Positioned(
+                              bottom: 0,
+                              left: 0,
+                              right: 0,
+                              child: Container(
+                                alignment: Alignment.bottomCenter,
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                      colors: [
+                                        Color(0xFF000000),
+                                        Color(0x00000000)
+                                      ],
+                                      begin: Alignment.bottomCenter,
+                                      end: Alignment.topCenter),
+                                ),
+                                height: 50,
+                                width: MediaQuery.of(context).size.width,
+                                child: Text(mealsList[index].name,
+                                    style: TextStyle(color: Colors.white),
+                                    textDirection: TextDirection.rtl),
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
-                  ),
+                      ),
 
-                  // https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png
-                  // Icon(Icons.insert_chart_outlined)),
-                ],
-              ),
-            );
-          }),
+                      // https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png
+                      // Icon(Icons.insert_chart_outlined)),
+                    ],
+                  ),
+                );
+              }),
     );
   }
 // اكلات
@@ -297,7 +306,9 @@ class _HomePageFoodState extends State<HomePageFood> {
       setState(() {
         mealsList = currentList;
         List<meal> sweets = <meal>[];
-        sweets = mealsList.where((element) => element.catigory.toString().contains("حلويات")).toList();
+        sweets = mealsList
+            .where((element) => element.catigory.toString().contains("حلويات"))
+            .toList();
         print(sweets.length);
       });
     } else {
@@ -315,19 +326,45 @@ class _HomePageFoodState extends State<HomePageFood> {
       // filteredMeals = mealsList.where((element) => element.name.toString().toLowerCase().contains(text.toString().toLowerCase())).toList();
 
       currentList.forEach((element) {
-        if (element.name.toString()
+        if (element.name
+            .toString()
             .toLowerCase()
             .contains(text.toString().toLowerCase())) {
           filteredMeals.add(element);
         }
       });
       List<meal> sweets = <meal>[];
-      sweets = filteredMeals.where((element) => element.catigory.toString().contains("حلويات")).toList();
+      sweets = filteredMeals
+          .where((element) => element.catigory.toString().contains("حلويات"))
+          .toList();
       print(sweets.length);
       setState(() {
         mealsList = filteredMeals;
       });
     }
+  }
+
+  onChange(value) {
+    setState(() {
+      dropDownValue = value;
+      if(value == "الكل"){
+        mealsList = myTempSortedAll;
+        currentList = myTempSortedAll;
+        myController.text = "";
+      }else if(value == "حلويات"){
+        mealsList = myTempSortedSweets;
+        currentList = myTempSortedSweets;
+        myController.text = "";
+      }else if(value == "وجبات"){
+        mealsList = myTempSortedFoods;
+        currentList = myTempSortedFoods;
+        myController.text = "";
+      }else if(value == "مشروبات"){
+        mealsList = myTempSortedDrinks;
+        currentList = myTempSortedDrinks;
+        myController.text = "";
+      }
+    });
   }
 
   _fetchDogsBreed(String url) async {
@@ -351,7 +388,7 @@ class _HomePageFoodState extends State<HomePageFood> {
         var img = imgs[0];
         // print(img);
         var tempMeal =
-        new meal(name: element["name"], image: img, id: element["id"]);
+            new meal(name: element["name"], image: img, id: element["id"]);
         tempMeal.catigory = element["catigory"];
         myTempMeals.add(tempMeal);
       });
@@ -359,9 +396,15 @@ class _HomePageFoodState extends State<HomePageFood> {
       myTempMeals.forEach((element) {
         // print(element.name);
       });
-      myTempSortedSweets =myTempMeals.where((element) => element.catigory.toString().contains("حلويات")).toList();
-      myTempSortedFoods =myTempMeals.where((element) => element.catigory.toString().contains("اكلات")).toList();
-      myTempSortedDrinks =myTempMeals.where((element) => element.catigory.toString().contains("drinks")).toList();
+      myTempSortedSweets = myTempMeals
+          .where((element) => element.catigory.toString().contains("حلويات"))
+          .toList();
+      myTempSortedFoods = myTempMeals
+          .where((element) => element.catigory.toString().contains("اكلات"))
+          .toList();
+      myTempSortedDrinks = myTempMeals
+          .where((element) => element.catigory.toString().contains("drinks"))
+          .toList();
       myTempSortedAll = myTempMeals;
     } else {
       throw Exception("Failed to load Dogs Breeds.");

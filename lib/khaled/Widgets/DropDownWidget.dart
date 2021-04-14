@@ -5,8 +5,9 @@ class DropdownWidget extends StatelessWidget {
   final Function onChange;
   final List<String> values;
   final double width, iconSize;
+  final Color color;
   const DropdownWidget(
-      this.value, this.values, this.width, this.iconSize, this.onChange);
+      this.value, this.values, this.width, this.iconSize, this.color,this.onChange,);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,13 +20,13 @@ class DropdownWidget extends StatelessWidget {
           underline: Container(
             child: Divider(
               height: 0,
-              color: Colors.white,
+              color: color,
             ),
           ),
 
           isExpanded: true,
           iconSize: iconSize,
-          iconEnabledColor: Colors.white,
+          iconEnabledColor: color,
           style: TextStyle(
             fontSize: 15,
           ),
@@ -42,7 +43,7 @@ class DropdownWidget extends StatelessWidget {
                   child: Text(
                     values[i],
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: color),
                   ),
                 ),
               ),

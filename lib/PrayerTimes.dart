@@ -161,7 +161,7 @@ class _PrayerTimesState extends State<PrayerTimes> {
                 Text("حسب التوقيت المحلي لمدينة: ",
                     textDirection: TextDirection.rtl,
                     style: (TextStyle(color: Colors.white))),
-                DropdownWidget(cityValue, cityList, 100, 20, onChange),
+                DropdownWidget(cityValue, cityList, 100, 20, Colors.white ,onChange),
                 Spacer(),
               ],
             ),
