@@ -7,6 +7,7 @@ import 'HomePage.dart';
 import 'khaled/Screens/QuranScreen.dart';
 import 'package:sanus/khaled/Screens/SettingScreen.dart';
 import 'HomePageFood.dart';
+import 'package:sanus/HomePagePlaces.dart';
 
 class BackGroundTemplate extends StatefulWidget {
   BackGroundTemplate({Key key, this.title, this.SubVC}) : super(key: key);
@@ -253,7 +254,7 @@ class _BackGroundTemplateState extends State<BackGroundTemplate>
           MaterialPageRoute(
               builder: (context) => BackGroundTemplate(
                 title: "Places",
-                SubVC: HomePage(dbUrl: 'https://elkhyma.com/ramadan/places/files/places.php',title: "Places",),
+                SubVC: HomePagePlaces(dbUrl: 'https://elkhyma.com/ramadan/places/files/places.php',title: "Places",),
               )),
         );
         break;

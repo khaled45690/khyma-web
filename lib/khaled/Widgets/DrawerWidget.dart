@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sanus/HomePageFood.dart';
 import 'package:sanus/main.dart';
 
 import 'package:sanus/PrayerTimes.dart';
@@ -6,7 +7,7 @@ import 'package:sanus/HomePage.dart';
 import 'package:sanus/khaled/Screens/QuranScreen.dart';
 import 'package:sanus/BackGroundTemplate.dart';
 import 'package:sanus/khaled/Screens/SettingScreen.dart';
-
+import 'package:sanus/HomePagePlaces.dart';
 
 class DrawerWidget extends StatefulWidget {
   final int selectedDestination;
@@ -146,7 +147,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
           MaterialPageRoute(
               builder: (context) => BackGroundTemplate(
                 title: "Meals",
-                SubVC: HomePage(dbUrl: 'https://elkhyma.com/ramadan/meals/files/meals.php',title: "Meals",),
+                SubVC: HomePageFood(dbUrl: 'https://elkhyma.com/ramadan/meals/files/meals.php',title: "Meals",),
               )),
         );
         break;
@@ -156,7 +157,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
           MaterialPageRoute(
               builder: (context) => BackGroundTemplate(
                 title: "Places",
-                SubVC: HomePage(dbUrl: 'https://elkhyma.com/ramadan/places/files/places.php',title: "Places",),
+                SubVC: HomePagePlaces(dbUrl: 'https://elkhyma.com/ramadan/places/files/places.php',title: "Places",),
               )),
         );
         break;

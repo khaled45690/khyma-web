@@ -3,6 +3,7 @@ import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:sanus/BackGroundTemplate.dart';
 import 'package:sanus/HomePage.dart';
 import 'package:sanus/HomePageFood.dart';
+import 'package:sanus/HomePagePlaces.dart';
 import 'package:sanus/khaled/Screens/FoodHorizontalScreen.dart';
 import 'package:sanus/khaled/Screens/PlacesScreen.dart';
 import 'package:sanus/khaled/Screens/SeriesScreen.dart';
@@ -63,7 +64,7 @@ class _MainScreenState extends State<MainScreen> {
                       MaterialPageRoute(
                           builder: (context) => BackGroundTemplate(
                             title: "Places",
-                            SubVC: HomePage(dbUrl: 'https://elkhyma.com/ramadan/places/files/places.php',title: "Places",),
+                            SubVC: HomePagePlaces(dbUrl: 'https://elkhyma.com/ramadan/places/files/places.php',title: "Places",),
                           )
                       ),
                     );
