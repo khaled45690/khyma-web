@@ -119,18 +119,30 @@ class _HomePageFoodState extends State<HomePageFood> {
       padding: EdgeInsets.only(bottom: 16.0),
       child: Column(
         children: [
-          TextField(
-            controller: myController,
-            textDirection: txtdir,
-            decoration: InputDecoration(
-              hintText: "بحث...",
-              prefixIcon: Icon(Icons.search),
-            ),
-            onChanged: (text) {
-              _filterDogList(text);
-            },
+          Row(
+            children: [
+              Container(
+                width: MediaQuery.of(context).size.width - 120,
+                child: TextField(
+                  controller: myController,
+                  textDirection: txtdir,
+                  decoration: InputDecoration(
+                    hintTextDirection: txtdir,
+                    hintText: "بحث...",
+                    prefixIcon: Icon(Icons.search),
+                  ),
+                  onChanged: (text) {
+                    print(text);
+                    _filterDogList(text);
+                  },
+                ),
+              ),
+              Container(
+                  margin: EdgeInsets.only(top: 15),
+                  child: DropdownWidget(dropDownValue, dropDownValues, 70, 22, Colors.grey ,onChange)),
+            ],
           ),
-          DropdownWidget(dropDownValue, dropDownValues, 100, 22, Colors.black ,onChange)
+
           // Row(
           //   children: [
           //     Spacer(),

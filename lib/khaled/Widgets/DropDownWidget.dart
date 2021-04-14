@@ -43,7 +43,7 @@ class DropdownWidget extends StatelessWidget {
                   child: Text(
                     values[i],
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: color),
+                    style: TextStyle(color: value == values[i] ? color : Colors.white),
                   ),
                 ),
               ),
