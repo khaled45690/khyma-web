@@ -117,49 +117,59 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      body: Container(
-        color: const Color(0xFF1D1D1D),
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-
-            // admob start  ----------------------------------------------
-            Container(
-              alignment: Alignment.center,
-              child: AdWidget(ad: myBanner),
-              width: myBanner.size.width.toDouble(),
-              height: myBanner.size.height.toDouble(),
-            ),
-            // admob end  ----------------------------------------------
-            Image.asset("images/tent.jpg",fit: BoxFit.contain, height: MediaQuery.of(context).size.height - 100,width: MediaQuery.of(context).size.width),
-
-
-
-
-            // ),
-          ],
-        ),
+      body: BackGroundTemplate(
+        title: "ddddd",
+        SubVC: MainScreen(),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // DateTime dob = DateTime.parse('1967-10-12');
-          // Duration dur =  DateTime.now().difference(dob);
-          Duration dur = Duration(days: 0, hours: 0, minutes: 0, seconds: 5);
-          // NotificationServices().showNotification(context, HomePage(), dur);
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => BackGroundTemplate(
-                      title: "ddddd",
-                      SubVC: MainScreen(),
-                    )),
-          );
-        },
-        tooltip: 'Enter the app',
-        child: Icon(Icons.not_started_outlined),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+
+      // Container(
+      //   color: const Color(0xFF1D1D1D),
+      //   // Center is a layout widget. It takes a single child and positions it
+      //   // in the middle of the parent.
+      //   child: Column(
+      //     mainAxisAlignment: MainAxisAlignment.center,
+      //     children: <Widget>[
+      //
+      //       // admob start  ----------------------------------------------
+      //       Container(
+      //         alignment: Alignment.center,
+      //         child: AdWidget(ad: myBanner),
+      //         width: myBanner.size.width.toDouble(),
+      //         height: myBanner.size.height.toDouble(),
+      //       ),
+      //       // admob end  ----------------------------------------------
+      //       Image.asset("images/tent.jpg",fit: BoxFit.contain, height: MediaQuery.of(context).size.height - 100,width: MediaQuery.of(context).size.width),
+      //
+      //
+      //
+      //
+      //       // ),
+      //     ],
+      //   ),
+      // ),
+
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {
+      //     // DateTime dob = DateTime.parse('1967-10-12');
+      //     // Duration dur =  DateTime.now().difference(dob);
+      //     Duration dur = Duration(days: 0, hours: 0, minutes: 0, seconds: 5);
+      //     // NotificationServices().showNotification(context, HomePage(), dur);
+      //     Navigator.push(
+      //       context,
+      //       MaterialPageRoute(
+      //           builder: (context) => BackGroundTemplate(
+      //                 title: "ddddd",
+      //                 SubVC: MainScreen(),
+      //               )),
+      //     );
+      //   },
+      //   tooltip: 'Enter the app',
+      //   child: Icon(Icons.not_started_outlined),
+      // ), // This trailing comma makes auto-formatting nicer for build methods.
+
+
+
+
     );
   }
 }
