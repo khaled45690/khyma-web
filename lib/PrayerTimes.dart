@@ -30,6 +30,7 @@ class _PrayerTimesState extends State<PrayerTimes> {
 
     // TODO: implement initState
     super.initState();
+
     _fetchMonthPrayers();
     selectedDateStr =
         "${selectedDate.year.toString()}-${selectedDate.month.toString().padLeft(2, '0')}-${selectedDate.day.toString().padLeft(2, '0')} ";
@@ -274,9 +275,10 @@ class _PrayerTimesState extends State<PrayerTimes> {
     );
   }
 onChange(value){
+  selectedDate = DateTime.now();
+  cityValue = value;
     setState(() {
-       selectedDate = DateTime.now();
-       cityValue = value;
+
     });
     _fetchMonthPrayers();
 }
@@ -292,7 +294,7 @@ onChange(value){
     // print(month);
     Map<String, dynamic> testMap = Map<String, dynamic>();
     // https://khyma.hwayadesigns.com/prayers.php?year=2021&month=4
-    var myStr = 'https://elkhyma.com/ramadan/prayers2.php?year='+year+'&month='+month+'&city='+data[cityValue];
+    var myStr = 'https://elkhyma.com/ramadan/prayers2.php?year='+year+'&month='+month+'&city='+data[cityValue].toString();
     print(myStr);
     // var myStr = 'http://api.aladhan.com/v1/calendarByCity?city=CAIRO&country=EGYPT&method=5&year='+year+'&month='+month;
     var myUri = Uri.parse(myStr);

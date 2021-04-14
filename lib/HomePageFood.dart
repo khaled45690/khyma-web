@@ -7,6 +7,10 @@ import 'DetailVCFood.dart';
 import 'DetailVCSeries.dart';
 import 'DetailVCPlaces.dart';
 import 'meal.dart';
+import 'package:sanus/OperatingSystem.dart';
+// admob start  ----------------------------------------------
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+// admob end  ----------------------------------------------
 
 class HomePageFood extends StatefulWidget {
   @override
@@ -18,6 +22,33 @@ class HomePageFood extends StatefulWidget {
 }
 
 class _HomePageFoodState extends State<HomePageFood> {
+
+  // admob start  ----------------------------------------------
+  final BannerAd myBanner = BannerAd(
+    adUnitId: 'ca-app-pub-3940256099942544/8865242552',
+    size: AdSize.banner,
+    request: AdRequest(),
+    listener: AdListener(),
+  );
+
+  final AdListener listener = AdListener(
+    // Called when an ad is successfully received.
+    onAdLoaded: (Ad ad) => print('Ad loaded.'),
+    // Called when an ad request failed.
+    onAdFailedToLoad: (Ad ad, LoadAdError error) {
+      ad.dispose();
+      print('Ad failed to load: $error');
+    },
+    // Called when an ad opens an overlay that covers the screen.
+    onAdOpened: (Ad ad) => print('Ad opened.'),
+    // Called when an ad removes an overlay that covers the screen.
+    onAdClosed: (Ad ad) => print('Ad closed.'),
+    // Called when an ad is in the process of leaving the application.
+    onApplicationExit: (Ad ad) => print('Left application.'),
+  );
+  // admob end  ----------------------------------------------
+
+
   bool isLoading = false;
   bool checkedVal = false;
   List<meal> myTempMeals = <meal>[];
@@ -40,6 +71,12 @@ class _HomePageFoodState extends State<HomePageFood> {
 
   @override
   void initState() {
+    OperatingSystem os = OperatingSystem();
+    // print(os.os);
+    // admob start  ----------------------------------------------
+    myBanner.load();
+    // admob end  ----------------------------------------------
+
     // TODO: implement initState
     super.initState();
     _fetchDogsBreed(widget.dbUrl);
@@ -62,7 +99,15 @@ class _HomePageFoodState extends State<HomePageFood> {
                 child: Container(
 
                   height: 50,
-                  child: Image.asset("images/ad-space.gif"),
+                  child:  // admob start  ----------------------------------------------
+                  Container(
+                    alignment: Alignment.center,
+                    child: AdWidget(ad: myBanner),
+                    width: myBanner.size.width.toDouble(),
+                    height: myBanner.size.height.toDouble(),
+                  ),
+                  // admob end  ----------------------------------------------
+                  // Image.asset("images/ad-space.gif"),
                 ),
               )
             ],
