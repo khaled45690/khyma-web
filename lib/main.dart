@@ -1,4 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:sanus/khaled/Screens/MainScreen.dart';
 import 'package:sanus/khaled/Screens/QuranScreen.dart';
 import 'HomePageSeries.dart';
@@ -23,7 +25,15 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   MobileAds.instance.initialize();
   // admob end  ----------------------------------------------
-
+  if (kIsWeb) {
+    // initialiaze the facebook javascript SDK
+    FacebookAuth.instance.webInitialize(
+      appId: "453852422571857",//<-- YOUR APP_ID
+      cookie: true,
+      xfbml: true,
+      version: "v10.0",
+    );
+  }
   runApp(MyApp());
 }
 
