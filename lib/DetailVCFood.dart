@@ -62,7 +62,7 @@ class _DetailVCFoodState extends State<DetailVCFood> {
               ? Center(child: CircularProgressIndicator(backgroundColor: Colors.white,))
               :ListView(
             children: [
-              kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-3940256099942544/8865242552",androidAdId: "ca-app-pub-3940256099942544/8865242552",),
+              kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/3402324628",androidAdId: "ca-app-pub-9037650239384734/4048373649",),
               Text(widget.myMeal.name, textDirection: TextDirection.rtl,
                 style: TextStyle(
                   fontSize: 30,
@@ -156,7 +156,7 @@ class _DetailVCFoodState extends State<DetailVCFood> {
               Text(widget.myMeal.makeHealthy.toString(), textDirection: TextDirection.rtl,style: TextStyle(
                 color: Colors.white,
               ),),
-              kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-3940256099942544/8865242552",androidAdId: "ca-app-pub-3940256099942544/8865242552",),
+              kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/3402324628",androidAdId: "ca-app-pub-9037650239384734/4048373649",),
               SizedBox(height: 30,),
               Text("  فيديو طريقة العمل:", textDirection: TextDirection.rtl,
                 style: TextStyle(

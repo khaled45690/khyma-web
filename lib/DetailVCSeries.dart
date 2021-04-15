@@ -67,7 +67,7 @@ class _DetailVCSeriesState extends State<DetailVCSeries> {
               ? Center(child: CircularProgressIndicator(backgroundColor: Colors.white,))
               :ListView(
             children: [
-              kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-3940256099942544/8865242552",androidAdId: "ca-app-pub-3940256099942544/8865242552",),
+              kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/9776161289",androidAdId: "ca-app-pub-9037650239384734/1422210307",),
               Text(mySeries.name?? "", textDirection: TextDirection.rtl,
                 style: TextStyle(
                   fontSize: 30,

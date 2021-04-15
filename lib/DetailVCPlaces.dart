@@ -63,7 +63,7 @@ class _DetailVCPlacesState extends State<DetailVCPlaces> {
               ? Center(child: CircularProgressIndicator(backgroundColor: Colors.white,))
               :ListView(
             children: [
-              kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-3940256099942544/8865242552",androidAdId: "ca-app-pub-3940256099942544/8865242552",),
+              kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/3210752938",androidAdId: "ca-app-pub-9037650239384734/7056012064",),
               Text(widget.myPlace.name, textDirection: TextDirection.rtl,
                 style: TextStyle(
                   fontSize: 30,

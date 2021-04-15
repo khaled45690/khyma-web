@@ -1,17 +1,13 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:sanus/BackGroundTemplate.dart';
 import 'package:sanus/HomePageSeries.dart';
 import 'package:sanus/HomePageFood.dart';
 import 'package:sanus/HomePagePlaces.dart';
-import 'package:sanus/ad_manager.dart';
 import 'package:sanus/khaled/Screens/FoodHorizontalScreen.dart';
 import 'package:sanus/khaled/Screens/PlacesScreen.dart';
 import 'package:sanus/khaled/Screens/SeriesScreen.dart';
 import 'package:sanus/khaled/Widgets/AlyBannerAdUnit.dart';
-import 'package:sanus/khaled/Widgets/DrawerWidget.dart';
-import 'package:sanus/khaled/Widgets/MainShapeWidget.dart';
 
 
 class MainScreen extends StatefulWidget {
@@ -36,7 +32,7 @@ class _MainScreenState extends State<MainScreen> {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
 
-                kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/1350876358",androidAdId: "ca-app-pub-9037650239384734/1350876358",),
+                kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/7724713011",androidAdId: "ca-app-pub-9037650239384734/1460549385",),
 
                 InkWell(
                   onTap: (){
@@ -90,7 +86,7 @@ class _MainScreenState extends State<MainScreen> {
                 ),
                 PlacesScreen(),
                 SizedBox(height: 50,),
-                kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/1350876358",androidAdId: "ca-app-pub-9037650239384734/1350876358",)
+                kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/4228321130",androidAdId: "ca-app-pub-9037650239384734/3047101401",)
               ],
             ),
           ),

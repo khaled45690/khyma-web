@@ -69,7 +69,7 @@ class _HomePagePlacesState extends State<HomePagePlaces> {
               Center(
                 child: Container(
                   height: 50,
-                  child: kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/1350876358",androidAdId: "ca-app-pub-9037650239384734/1350876358",)
+                  child: kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/3785468008",androidAdId: "ca-app-pub-9037650239384734/9804081442",)
                   // Image.asset("images/ad-space.gif"),
                 ),
               )
@@ -106,7 +106,7 @@ class _HomePagePlacesState extends State<HomePagePlaces> {
                   child: DropdownWidget(dropDownValue, dropDownValues, 70, 22, Colors.grey ,onChange)),
             ],
           ),
-          kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/1350876358",androidAdId: "ca-app-pub-9037650239384734/1350876358",)
+          kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/1159304668",androidAdId: "ca-app-pub-9037650239384734/9339039402",)
           // Row(
           //   children: [
           //     Spacer(),

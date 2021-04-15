@@ -61,7 +61,7 @@ class _HomePageSeriesState extends State<HomePageSeries> {
                 child: Container(
 
                   height: 50,
-                  child: kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/1350876358",androidAdId: "ca-app-pub-9037650239384734/1350876358",)
+                  child: kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/9097504435",androidAdId: "ca-app-pub-9037650239384734/7834386047",)
                 ),
               )
             ],
@@ -90,7 +90,7 @@ class _HomePageSeriesState extends State<HomePageSeries> {
               },
             ),
           ),
-          kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/1350876358",androidAdId: "ca-app-pub-9037650239384734/1350876358",),
+          kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/9967732972",androidAdId: "ca-app-pub-9037650239384734/8107856393",),
         ],
       ),
     );

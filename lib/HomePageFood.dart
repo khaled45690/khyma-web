@@ -71,7 +71,7 @@ class _HomePageFoodState extends State<HomePageFood> {
               Center(
                 child: Container(
                   height: 50,
-                  child: kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/1350876358",androidAdId: "ca-app-pub-9037650239384734/1350876358",)
+                  child: kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/1350876358",androidAdId: "ca-app-pub-9037650239384734/8682571463",)
                   // admob end  ----------------------------------------------
                   // Image.asset("images/ad-space.gif"),
                 ),
@@ -110,7 +110,7 @@ class _HomePageFoodState extends State<HomePageFood> {
             ],
           ),
           // admob start  ----------------------------------------------
-          kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/1350876358",androidAdId: "ca-app-pub-9037650239384734/1350876358",)
+          kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/8475947085",androidAdId: "ca-app-pub-9037650239384734/4182668227",)
           // admob end  ----------------------------------------------
 
           // Row(
