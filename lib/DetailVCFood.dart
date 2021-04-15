@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
@@ -6,6 +7,7 @@ import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'DetailVCFood.dart';
+import 'khaled/Widgets/AlyBannerAdUnit.dart';
 import 'myStatefulWidget.dart';
 import 'DetailVCFood.dart';
 import 'meal.dart';
@@ -60,6 +62,7 @@ class _DetailVCFoodState extends State<DetailVCFood> {
               ? Center(child: CircularProgressIndicator(backgroundColor: Colors.white,))
               :ListView(
             children: [
+              kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-3940256099942544/8865242552",androidAdId: "ca-app-pub-3940256099942544/8865242552",),
               Text(widget.myMeal.name, textDirection: TextDirection.rtl,
                 style: TextStyle(
                   fontSize: 30,
@@ -153,6 +156,7 @@ class _DetailVCFoodState extends State<DetailVCFood> {
               Text(widget.myMeal.makeHealthy.toString(), textDirection: TextDirection.rtl,style: TextStyle(
                 color: Colors.white,
               ),),
+              kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-3940256099942544/8865242552",androidAdId: "ca-app-pub-3940256099942544/8865242552",),
               SizedBox(height: 30,),
               Text("  فيديو طريقة العمل:", textDirection: TextDirection.rtl,
                 style: TextStyle(

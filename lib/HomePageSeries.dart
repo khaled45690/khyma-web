@@ -1,23 +1,25 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
+import 'package:sanus/khaled/Widgets/AlyBannerAdUnit.dart';
 import 'dart:convert';
 import 'DetailVCFood.dart';
 import 'DetailVCSeries.dart';
 import 'DetailVCPlaces.dart';
 import 'meal.dart';
 
-class HomePage extends StatefulWidget {
+class HomePageSeries extends StatefulWidget {
   @override
   final String dbUrl;
   final String title;
-  HomePage({Key key, this.dbUrl, this.title}) : super(key: key);
-  _HomePageState createState() => _HomePageState();
+  HomePageSeries({Key key, this.dbUrl, this.title}) : super(key: key);
+  _HomePageSeriesState createState() => _HomePageSeriesState();
 
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageSeriesState extends State<HomePageSeries> {
   bool isLoading = false;
   bool checkedVal = false;
   List<meal> myTempMeals = <meal>[];
@@ -27,8 +29,14 @@ class _HomePageState extends State<HomePage> {
   List<meal> myTempSortedFoods = <meal>[];
   List<meal> myTempSortedDrinks = <meal>[];
 
-
-
+  final myController = TextEditingController();
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is removed from the
+    // widget tree.
+    myController.dispose();
+    super.dispose();
+  }
   @override
   void initState() {
     // TODO: implement initState
@@ -53,7 +61,7 @@ class _HomePageState extends State<HomePage> {
                 child: Container(
 
                   height: 50,
-                  child: Image.asset("images/ad-space.gif"),
+                  child: kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/1350876358",androidAdId: "ca-app-pub-9037650239384734/1350876358",)
                 ),
               )
             ],
@@ -64,15 +72,26 @@ class _HomePageState extends State<HomePage> {
   Widget _searchBar() {
     return Container(
       padding: EdgeInsets.only(bottom: 16.0),
-      child: TextField(
-        textDirection: txtdir,
-        decoration: InputDecoration(
-          hintText: "بحث...",
-          prefixIcon: Icon(Icons.search),
-        ),
-        onChanged: (text) {
-          _filterDogList(text);
-        },
+      child: Column(
+        children: [
+          Container(
+            width: MediaQuery.of(context).size.width - 120,
+            child: TextField(
+              controller: myController,
+              textDirection: txtdir,
+              decoration: InputDecoration(
+                hintTextDirection: txtdir,
+                hintText: "بحث...",
+                prefixIcon: Icon(Icons.search),
+              ),
+              onChanged: (text) {
+                print(text);
+                _filterDogList(text);
+              },
+            ),
+          ),
+          kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/1350876358",androidAdId: "ca-app-pub-9037650239384734/1350876358",),
+        ],
       ),
     );
   }

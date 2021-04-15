@@ -1,21 +1,33 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:sanus/BackGroundTemplate.dart';
-import 'package:sanus/HomePage.dart';
+import 'package:sanus/HomePageSeries.dart';
 import 'package:sanus/HomePageFood.dart';
 import 'package:sanus/HomePagePlaces.dart';
+import 'package:sanus/ad_manager.dart';
 import 'package:sanus/khaled/Screens/FoodHorizontalScreen.dart';
 import 'package:sanus/khaled/Screens/PlacesScreen.dart';
 import 'package:sanus/khaled/Screens/SeriesScreen.dart';
+import 'package:sanus/khaled/Widgets/AlyBannerAdUnit.dart';
 import 'package:sanus/khaled/Widgets/DrawerWidget.dart';
 import 'package:sanus/khaled/Widgets/MainShapeWidget.dart';
 
+
 class MainScreen extends StatefulWidget {
+
   @override
   _MainScreenState createState() => _MainScreenState();
 }
 
 class _MainScreenState extends State<MainScreen> {
+
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return  Container(
@@ -23,6 +35,9 @@ class _MainScreenState extends State<MainScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
+
+                kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/1350876358",androidAdId: "ca-app-pub-9037650239384734/1350876358",),
+
                 InkWell(
                   onTap: (){
                     Navigator.push(
@@ -47,7 +62,7 @@ class _MainScreenState extends State<MainScreen> {
                       MaterialPageRoute(
                           builder: (context) => BackGroundTemplate(
                             title: "Series",
-                            SubVC: HomePage(dbUrl: 'https://elkhyma.com/ramadan/series/files/series.php',title: "Series",),
+                            SubVC: HomePageSeries(dbUrl: 'https://elkhyma.com/ramadan/series/files/series.php',title: "Series",),
                           )
                       ),
                     );
@@ -75,6 +90,7 @@ class _MainScreenState extends State<MainScreen> {
                 ),
                 PlacesScreen(),
                 SizedBox(height: 50,),
+                kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/1350876358",androidAdId: "ca-app-pub-9037650239384734/1350876358",)
               ],
             ),
           ),

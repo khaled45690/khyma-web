@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:sanus/MyDrawer.dart';
-import 'package:sanus/HomePage.dart';
+import 'package:sanus/HomePageSeries.dart';
 import 'package:sanus/SecondRoute.dart';
 import 'package:sanus/myStatefulWidget.dart';
 import 'package:sanus/tabView1.dart';
@@ -71,7 +71,7 @@ class _tabbarState extends State<tabbar>
                     child: TabBarView(
                       controller: controller,
                       children: [
-                        HomePage(),
+                        HomePageSeries(),
                         myStatefulWidget(text: "Aly",),
                         Icon(Icons.directions_bike),
                         Icon(Icons.directions_bike),

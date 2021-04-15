@@ -6,7 +6,7 @@ import 'package:sanus/khaled/Widgets/MainShapeWidget.dart';
 import 'package:sanus/khaled/Widgets/buttonDesign.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../../HomePage.dart';
+import '../../HomePageSeries.dart';
 
 class SignUpScreen extends StatefulWidget {
 

@@ -18,9 +18,9 @@ class SeriesChannels extends StatelessWidget {
               margin: EdgeInsets.only(top: 2),
               child: Text(" : ${time[0]["name"]}  ", style: TextStyle(color: Colors.white , fontSize: 15) ,)),
           Container(
-            width: MediaQuery.of(context).size.width - 100,
+            // width: MediaQuery.of(context).size.width - 100,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 for(int i = 0; i < time[1]["times"].length; i++)
                 Container(

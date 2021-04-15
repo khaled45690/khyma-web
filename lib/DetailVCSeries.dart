@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:sanus/khaled/Widgets/SeriesChannels.dart';
 import 'package:sanus/place.dart';
@@ -9,6 +10,7 @@ import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'DetailVCSeries.dart';
+import 'khaled/Widgets/AlyBannerAdUnit.dart';
 import 'myStatefulWidget.dart';
 import 'DetailVCSeries.dart';
 import 'place.dart';
@@ -65,6 +67,7 @@ class _DetailVCSeriesState extends State<DetailVCSeries> {
               ? Center(child: CircularProgressIndicator(backgroundColor: Colors.white,))
               :ListView(
             children: [
+              kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-3940256099942544/8865242552",androidAdId: "ca-app-pub-3940256099942544/8865242552",),
               Text(mySeries.name?? "", textDirection: TextDirection.rtl,
                 style: TextStyle(
                   fontSize: 30,
@@ -127,7 +130,6 @@ class _DetailVCSeriesState extends State<DetailVCSeries> {
               SizedBox(height: 15,),
               for(int i = 0 ; i < time.length ; i++)
                 SeriesChannels(time[i]),
-
 
             ],
           )

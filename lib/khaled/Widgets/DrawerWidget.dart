@@ -3,7 +3,7 @@ import 'package:sanus/HomePageFood.dart';
 import 'package:sanus/main.dart';
 
 import 'package:sanus/PrayerTimes.dart';
-import 'package:sanus/HomePage.dart';
+import 'package:sanus/HomePageSeries.dart';
 import 'package:sanus/khaled/Screens/QuranScreen.dart';
 import 'package:sanus/BackGroundTemplate.dart';
 import 'package:sanus/khaled/Screens/SettingScreen.dart';
@@ -167,7 +167,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
           MaterialPageRoute(
               builder: (context) => BackGroundTemplate(
                 title: "Places",
-                SubVC: HomePage(dbUrl: 'https://elkhyma.com/ramadan/series/files/series.php',title: "Series",),
+                SubVC: HomePageSeries(dbUrl: 'https://elkhyma.com/ramadan/series/files/series.php',title: "Series",),
               )),
         );
         break;

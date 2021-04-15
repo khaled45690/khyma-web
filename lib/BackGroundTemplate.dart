@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 // import 'package:sanus/khaled/Widgets/adSense.dart';
 import 'main.dart';
 import 'PrayerTimes.dart';
-import 'HomePage.dart';
+import 'HomePageSeries.dart';
 import 'khaled/Screens/QuranScreen.dart';
 import 'package:sanus/khaled/Screens/SettingScreen.dart';
 import 'HomePageFood.dart';
@@ -264,7 +264,7 @@ class _BackGroundTemplateState extends State<BackGroundTemplate>
           MaterialPageRoute(
               builder: (context) => BackGroundTemplate(
                 title: "Places",
-                SubVC: HomePage(dbUrl: 'https://elkhyma.com/ramadan/series/files/series.php',title: "Series",),
+                SubVC: HomePageSeries(dbUrl: 'https://elkhyma.com/ramadan/series/files/series.php',title: "Series",),
               )),
         );
         break;

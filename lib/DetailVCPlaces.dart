@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:sanus/place.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
@@ -7,6 +8,7 @@ import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'DetailVCPlaces.dart';
+import 'khaled/Widgets/AlyBannerAdUnit.dart';
 import 'myStatefulWidget.dart';
 import 'DetailVCPlaces.dart';
 import 'place.dart';
@@ -61,6 +63,7 @@ class _DetailVCPlacesState extends State<DetailVCPlaces> {
               ? Center(child: CircularProgressIndicator(backgroundColor: Colors.white,))
               :ListView(
             children: [
+              kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-3940256099942544/8865242552",androidAdId: "ca-app-pub-3940256099942544/8865242552",),
               Text(widget.myPlace.name, textDirection: TextDirection.rtl,
                 style: TextStyle(
                   fontSize: 30,
