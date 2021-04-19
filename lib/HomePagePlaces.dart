@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:http/http.dart' as http;
 import 'package:sanus/khaled/Widgets/DropDownWidget.dart';
 import 'dart:convert';
@@ -11,7 +12,7 @@ import 'DetailVCPlaces.dart';
 import 'khaled/Widgets/AlyBannerAdUnit.dart';
 import 'meal.dart';
 import 'package:sanus/OperatingSystem.dart';
-
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePagePlaces extends StatefulWidget {
   @override
@@ -22,7 +23,9 @@ class HomePagePlaces extends StatefulWidget {
 }
 
 class _HomePagePlacesState extends State<HomePagePlaces> {
-
+  var _url = "tel:+201155533344";
+  void _launchURL() async =>
+      await canLaunch(_url) ? await launch(_url) : throw 'Could not launch $_url';
 
   bool isLoading = false;
   bool checkedVal = false;
@@ -69,10 +72,11 @@ class _HomePagePlacesState extends State<HomePagePlaces> {
               Center(
                 child: Container(
                   height: 50,
-                  child: kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/3785468008",androidAdId: "ca-app-pub-9037650239384734/9804081442",)
+                  child: kIsWeb ? InkWell(child: Image.asset("images/ad-space.gif"), onTap: (){
+                    _launchURL();},):AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/3785468008",androidAdId: "ca-app-pub-9037650239384734/9804081442",)
                   // Image.asset("images/ad-space.gif"),
                 ),
-              )
+              ),
             ],
           ),
         ));
@@ -106,7 +110,8 @@ class _HomePagePlacesState extends State<HomePagePlaces> {
                   child: DropdownWidget(dropDownValue, dropDownValues, 70, 22, Colors.grey ,onChange)),
             ],
           ),
-          kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/1159304668",androidAdId: "ca-app-pub-9037650239384734/9339039402",)
+          kIsWeb ? InkWell(child: Image.asset("images/ad-space.gif"), onTap: (){
+            _launchURL();},):AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/1159304668",androidAdId: "ca-app-pub-9037650239384734/9339039402",)
           // Row(
           //   children: [
           //     Spacer(),
@@ -188,9 +193,9 @@ class _HomePagePlacesState extends State<HomePagePlaces> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => DetailVCFood(
-                        mealId: mealsList[index].id,
-                        myMeal: mealsList[index],
+                      builder: (context) => DetailVCPlaces(
+                        placeId: mealsList[index].id,
+
                       )),
                 );
               },

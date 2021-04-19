@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+// import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:sanus/khaled/Screens/MainScreen.dart';
 import 'package:sanus/khaled/Screens/QuranScreen.dart';
 import 'HomePageSeries.dart';
@@ -15,25 +15,29 @@ import 'HomePageFood.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:web_browser_detect/web_browser_detect.dart';
 
+// import 'package:firebase_core/firebase_core.dart';
+// import 'package:firebase_analytics/firebase_analytics.dart';
+// import 'package:firebase_analytics/observer.dart';
 
 // admob start  ----------------------------------------------
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 // admob end  ----------------------------------------------
 
-void main() {
+Future<void> main() async{
   // admob start  ----------------------------------------------
   WidgetsFlutterBinding.ensureInitialized();
-  MobileAds.instance.initialize();
+  // await Firebase.initializeApp();
+  await MobileAds.instance.initialize();
   // admob end  ----------------------------------------------
-  if (kIsWeb) {
-    // initialiaze the facebook javascript SDK
-    FacebookAuth.instance.webInitialize(
-      appId: "453852422571857",//<-- YOUR APP_ID
-      cookie: true,
-      xfbml: true,
-      version: "v10.0",
-    );
-  }
+  // if (kIsWeb) {
+  //   // initialiaze the facebook javascript SDK
+  //   FacebookAuth.instance.webInitialize(
+  //     appId: "453852422571857",//<-- YOUR APP_ID
+  //     cookie: true,
+  //     xfbml: true,
+  //     version: "v10.0",
+  //   );
+  // }
   runApp(MyApp());
 }
 

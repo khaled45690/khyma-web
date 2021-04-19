@@ -8,6 +8,9 @@ import 'package:sanus/khaled/Screens/FoodHorizontalScreen.dart';
 import 'package:sanus/khaled/Screens/PlacesScreen.dart';
 import 'package:sanus/khaled/Screens/SeriesScreen.dart';
 import 'package:sanus/khaled/Widgets/AlyBannerAdUnit.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 
 
 class MainScreen extends StatefulWidget {
@@ -17,8 +20,9 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-
-
+  var  facebook = 'https://www.facebook.com/elkhyma.EG/';
+  var website = 'https://hwayadesigns.com';
+  var _url = '';
   @override
   void initState() {
     // TODO: implement initState
@@ -26,13 +30,32 @@ class _MainScreenState extends State<MainScreen> {
   }
   @override
   Widget build(BuildContext context) {
+
     return  Container(
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
 
-                kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/7724713011",androidAdId: "ca-app-pub-9037650239384734/1460549385",),
+                Row(
+                  children: [
+                    IconButton(icon: FaIcon(FontAwesomeIcons.facebook, color: Colors.blue,), onPressed:(){
+                      _url = facebook;
+                      _launchURL();}),
+                    IconButton(onPressed:(){
+                      _url = website;
+                      _launchURL();}, icon: Image.asset("images/hwayaLogo.png",)),
+                  ],
+                ),
+                InkWell(child: Image.asset("images/ad-space.gif"), onTap: (){
+                  _url = "tel:+201155533344";
+                  _launchURL();
+                },),
+
+
+
+
+                // kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/7724713011",androidAdId: "ca-app-pub-9037650239384734/1460549385",),
 
                 InkWell(
                   onTap: (){
@@ -86,12 +109,18 @@ class _MainScreenState extends State<MainScreen> {
                 ),
                 PlacesScreen(),
                 SizedBox(height: 50,),
-                kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/4228321130",androidAdId: "ca-app-pub-9037650239384734/3047101401",)
+                kIsWeb ?  InkWell(child: Image.asset("images/ad-space.gif"), onTap: (){
+    _url = "tel:+201155533344";
+    _launchURL();
+    },):AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/4228321130",androidAdId: "ca-app-pub-9037650239384734/3047101401",)
               ],
             ),
           ),
         );
   }
+
+ void _launchURL() async =>
+      await canLaunch(_url) ? await launch(_url) : throw 'Could not launch $_url';
 }
 
 // gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

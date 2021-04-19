@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:sanus/MobileOs.dart';
 import 'package:sanus/place.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
@@ -135,6 +136,26 @@ class _DetailVCPlacesState extends State<DetailVCPlaces> {
               Text(widget.myPlace.description, textDirection: TextDirection.rtl,style: TextStyle(
                 color: Colors.white,
               ),),
+              Text("العنوان:", textDirection: TextDirection.rtl,style: TextStyle(
+                color: Colors.yellow,),),
+              Text(widget.myPlace.placeAddress, textDirection: TextDirection.rtl,style: TextStyle(
+                color: Colors.white,
+              ),),
+              Text("الايميل:", textDirection: TextDirection.rtl,style: TextStyle(
+              color: Colors.yellow,),),
+              Text(widget.myPlace.placeEmail, textDirection: TextDirection.rtl,style: TextStyle(
+                color: Colors.white,
+              ),),
+              Text("الموقع الألكتروني:", textDirection: TextDirection.rtl,style: TextStyle(
+    color: Colors.yellow,),),
+              Text(widget.myPlace.placeWebsite, textDirection: TextDirection.rtl,style: TextStyle(
+                color: Colors.white,
+              ),),
+              Text("تليفون:", textDirection: TextDirection.rtl,style: TextStyle(
+    color: Colors.yellow,),),
+              Text(widget.myPlace.placePhone, textDirection: TextDirection.rtl,style: TextStyle(
+                color: Colors.white,
+              ),),
               Padding(
                 padding: const EdgeInsets.only( top: 8.0),
                 child: Row(
@@ -157,12 +178,17 @@ class _DetailVCPlacesState extends State<DetailVCPlaces> {
               Text(widget.myPlace.recommendations, textDirection: TextDirection.rtl,style: TextStyle(
                 color: Colors.white,
               ),),
-              Padding(
+              kIsWeb ? Padding(
                 padding: const EdgeInsets.only(top: 10.0),
                 child: YoutubePlayerIFrame(
                   controller: _controller,
                 ),
-              ),
+              ): MobileOs().isAndroid ?Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+                child: YoutubePlayerIFrame(
+                  controller: _controller,
+                ),
+              ): Container()
 
 
             ],
@@ -176,7 +202,7 @@ class _DetailVCPlacesState extends State<DetailVCPlaces> {
     setState(() {
       isLoading = true;
     });
-    place tempMeal = new place();
+    place tempPlace = new place();
     // http://localhost:8888/ramadan.php
     // https://dog.ceo/api/breeds/list/all
     Map<String, dynamic> testMap = Map<String, dynamic>();
@@ -191,29 +217,33 @@ class _DetailVCPlacesState extends State<DetailVCPlaces> {
         print("================================");
         print(element["name"]);
         var imgs = jsonDecode(element["images"]);
+
         var img = imgs[0];
+        print(img);
         var videos = jsonDecode(element["video"]);
         String video = videos[0].toString();
         print("================================");
         print(video);
         // print(img);
-        tempMeal =
-        new place(name: element["name"], image: img, id: element["id"],);
-        tempMeal.description = element["description"];
-        tempMeal.recommendations = element["recommendations"];
-        tempMeal.video = video;
-
-        print(tempMeal.description);
+        tempPlace = new place(name: element["name"], image: img, id: element["id"],);
+        tempPlace.description = element["description"];
+        tempPlace.recommendations = element["recommendations"];
+        tempPlace.video = video;
+        tempPlace.placeAddress = element["other"];
+        tempPlace.placeWebsite = element["website"];
+        tempPlace.placeEmail = element["email"];
+        tempPlace.placePhone = "+20"+element["phone1"].toString();
+        print(tempPlace.description);
       });
 
     } else {
       throw Exception("Failed to load Dogs Breeds.");
     }
     setState(() {
-      widget.myPlace = tempMeal;
+      widget.myPlace = tempPlace;
 
       _controller = YoutubePlayerController(
-          initialVideoId: tempMeal.video,
+          initialVideoId: tempPlace.video,
           params: const YoutubePlayerParams(
             autoPlay: false,
             showControls: true,

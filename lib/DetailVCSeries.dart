@@ -5,6 +5,7 @@ import 'package:sanus/place.dart';
 import 'package:sanus/series.dart';
 // import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'MobileOs.dart';
 import 'PrayerTimesData.dart';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
@@ -74,12 +75,54 @@ class _DetailVCSeriesState extends State<DetailVCSeries> {
                   color: Colors.white,
                 ),
               ),
-              Padding(
+              kIsWeb ? Padding(
                 padding: const EdgeInsets.only(top: 10.0),
                 child: YoutubePlayerIFrame(
                   controller: _controller,
-                  // aspectRatio: 16 / 9,
                 ),
+              ): MobileOs().isAndroid ?Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+                child: YoutubePlayerIFrame(
+                  controller: _controller,
+                ),
+              ): new Image.network(
+                mySeries.image,
+                errorBuilder: (
+                    context,
+                    error,
+                    stackTrace,
+                    ) {
+                  // print(error); //do something
+                  return Image.asset("images/no-image.png");
+                },
+                loadingBuilder: (BuildContext context,
+                    Widget child,
+                    ImageChunkEvent loadingProgress) {
+                  if (loadingProgress == null) return child;
+                  return Stack(children: [
+                    SizedBox(
+                      child: CupertinoActivityIndicator(
+                        animating: true,
+                      ),
+                      width: 50,
+                      height: 50,
+                    ),
+                    SizedBox(
+                      child: CircularProgressIndicator(
+                        value: loadingProgress
+                            .expectedTotalBytes !=
+                            null
+                            ? loadingProgress
+                            .cumulativeBytesLoaded /
+                            loadingProgress.expectedTotalBytes
+                            : null,
+                      ),
+                    ),
+                  ]);
+                },
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.width * 0.68,
+                fit: BoxFit.cover,
               ),
 
 
@@ -153,14 +196,19 @@ class _DetailVCSeriesState extends State<DetailVCSeries> {
     if (response.statusCode == 200) {
       final jsonResponse = jsonDecode(response.body);
       print("--------------------=====================================>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-      setState(() {
+
+
         time = jsonDecode(jsonResponse["message"][0]["time"]);
         print(time);
-      });
+
       testMap = jsonResponse;
       // print("================================");
       // print(testMap["message"]);
       jsonResponse["message"].forEach((element) {
+        var imgs = jsonDecode(element["images"]);
+        var img = imgs[0];
+
+        print(img);
         // print("================================");
         // print(element["name"]);
 
@@ -168,9 +216,8 @@ class _DetailVCSeriesState extends State<DetailVCSeries> {
         String video = element["video"].toString();
         // print("================================");
         // print(video);
-        // print(img);
-        tempMeal =
-        new series(name: element["name"], image: element["image"], id: element["id"],);
+
+        tempMeal = new series(name: element["name"], image: img, id: element["id"],);
         tempMeal.brief = element["brief"];
 
         tempMeal.video = video;

@@ -31,10 +31,15 @@ dependencies:
   youtube_player_iframe: ^2.0.0
   google_mobile_ads: ^0.12.1
   web_browser_detect: ^2.0.1
-  flutter_facebook_auth: ^3.3.2
+  url_launcher: ^6.0.3
+
+  #  flutter_facebook_auth: ^3.3.2
 
   flutter:
     sdk: flutter
+#  firebase_core: "^1.0.3"
+#  firebase_analytics: "^8.0.0"
+
   flutter_localizations:
     sdk: flutter
 
@@ -61,8 +66,10 @@ flutter:
   assets:
     - images/no-image.png
     - images/tent.jpg
-    - ad-space.gif
-    - Icon-192.jpg
+    - images/ad-space.gif
+    - images/Icon-192.jpg
+    - images/hwayaLogo.png
+    - images/word.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -9,6 +9,7 @@ import 'DetailVCFood.dart';
 import 'DetailVCSeries.dart';
 import 'DetailVCPlaces.dart';
 import 'meal.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePageSeries extends StatefulWidget {
   @override
@@ -20,6 +21,10 @@ class HomePageSeries extends StatefulWidget {
 }
 
 class _HomePageSeriesState extends State<HomePageSeries> {
+  var _url = "tel:+201155533344";
+  void _launchURL() async =>
+      await canLaunch(_url) ? await launch(_url) : throw 'Could not launch $_url';
+
   bool isLoading = false;
   bool checkedVal = false;
   List<meal> myTempMeals = <meal>[];
@@ -61,7 +66,8 @@ class _HomePageSeriesState extends State<HomePageSeries> {
                 child: Container(
 
                   height: 50,
-                  child: kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/9097504435",androidAdId: "ca-app-pub-9037650239384734/7834386047",)
+                  child: kIsWeb ? InkWell(child: Image.asset("images/ad-space.gif"), onTap: (){
+                    _launchURL();},):AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/9097504435",androidAdId: "ca-app-pub-9037650239384734/7834386047",)
                 ),
               )
             ],
@@ -90,7 +96,8 @@ class _HomePageSeriesState extends State<HomePageSeries> {
               },
             ),
           ),
-          kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/9967732972",androidAdId: "ca-app-pub-9037650239384734/8107856393",),
+          kIsWeb ? InkWell(child: Image.asset("images/ad-space.gif"), onTap: (){
+            _launchURL();},):AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/9967732972",androidAdId: "ca-app-pub-9037650239384734/8107856393",),
         ],
       ),
     );

@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
+import 'MobileOs.dart';
 import 'PrayerTimesData.dart';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
@@ -12,7 +13,7 @@ import 'myStatefulWidget.dart';
 import 'DetailVCFood.dart';
 import 'meal.dart';
 import 'package:flutter/cupertino.dart';
-
+import 'package:url_launcher/url_launcher.dart';
 
 class DetailVCFood extends StatefulWidget {
   final int mealId;
@@ -31,6 +32,10 @@ class DetailVCFood extends StatefulWidget {
 
 
 class _DetailVCFoodState extends State<DetailVCFood> {
+  var _url = "tel:+201155533344";
+  void _launchURL() async =>
+      await canLaunch(_url) ? await launch(_url) : throw 'Could not launch $_url';
+
   bool isLoading = false;
 
   YoutubePlayerController _controller;
@@ -62,7 +67,8 @@ class _DetailVCFoodState extends State<DetailVCFood> {
               ? Center(child: CircularProgressIndicator(backgroundColor: Colors.white,))
               :ListView(
             children: [
-              kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/3402324628",androidAdId: "ca-app-pub-9037650239384734/4048373649",),
+              kIsWeb ? InkWell(child: Image.asset("images/ad-space.gif"), onTap: (){
+                _launchURL();},):AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/3402324628",androidAdId: "ca-app-pub-9037650239384734/4048373649",),
               Text(widget.myMeal.name, textDirection: TextDirection.rtl,
                 style: TextStyle(
                   fontSize: 30,
@@ -156,7 +162,8 @@ class _DetailVCFoodState extends State<DetailVCFood> {
               Text(widget.myMeal.makeHealthy.toString(), textDirection: TextDirection.rtl,style: TextStyle(
                 color: Colors.white,
               ),),
-              kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/3402324628",androidAdId: "ca-app-pub-9037650239384734/4048373649",),
+              kIsWeb ? InkWell(child: Image.asset("images/ad-space.gif"), onTap: (){
+                _launchURL();},):AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/3402324628",androidAdId: "ca-app-pub-9037650239384734/4048373649",),
               SizedBox(height: 30,),
               Text("  فيديو طريقة العمل:", textDirection: TextDirection.rtl,
                 style: TextStyle(
@@ -165,12 +172,17 @@ class _DetailVCFoodState extends State<DetailVCFood> {
                   decoration: TextDecoration.underline,
                 ),
               ),
-              Padding(
+              kIsWeb ? Padding(
                 padding: const EdgeInsets.only(top: 10.0),
                 child: YoutubePlayerIFrame(
                   controller: _controller,
                 ),
-              ),
+              ): MobileOs().isAndroid ?Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+                child: YoutubePlayerIFrame(
+                  controller: _controller,
+                ),
+              ): Container()
 
 
             ],
@@ -223,7 +235,8 @@ class _DetailVCFoodState extends State<DetailVCFood> {
           initialVideoId: tempMeal.video,
           params: const YoutubePlayerParams(
             autoPlay: false,
-            showControls: true,
+            showControls: false,
+            playsInline: false,
           )
         // flags: const YoutubePlayerFlags(
         //   autoPlay: false,

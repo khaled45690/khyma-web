@@ -7,5 +7,6 @@ class meal {
   String video;
   String catigory;
 
+
   meal({this.name, this.image, this.id});
 }

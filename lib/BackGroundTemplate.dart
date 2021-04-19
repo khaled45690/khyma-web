@@ -50,7 +50,12 @@ class _BackGroundTemplateState extends State<BackGroundTemplate>
         backgroundColor: Color(0xFFD83D3A),
         iconTheme: IconThemeData(color: Colors.white),
         elevation: 0,
-        title:  Text("الخيمة", textScaleFactor: 2, )
+        title: Image.asset("images/word.png", fit: BoxFit.contain, height: 50,width: 90,),
+
+
+        // Text("الخيمة", textScaleFactor: 2, )
+
+
         // Row(children: [
         //
         //   // Checkbox(

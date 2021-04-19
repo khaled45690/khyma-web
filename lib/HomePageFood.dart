@@ -11,6 +11,7 @@ import 'DetailVCSeries.dart';
 import 'DetailVCPlaces.dart';
 import 'meal.dart';
 import 'package:sanus/OperatingSystem.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 
 class HomePageFood extends StatefulWidget {
@@ -22,8 +23,9 @@ class HomePageFood extends StatefulWidget {
 }
 
 class _HomePageFoodState extends State<HomePageFood> {
-
-
+  var _url = "tel:+201155533344";
+  void _launchURL() async =>
+      await canLaunch(_url) ? await launch(_url) : throw 'Could not launch $_url';
 
   bool isLoading = false;
   bool checkedVal = false;
@@ -71,7 +73,8 @@ class _HomePageFoodState extends State<HomePageFood> {
               Center(
                 child: Container(
                   height: 50,
-                  child: kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/1350876358",androidAdId: "ca-app-pub-9037650239384734/8682571463",)
+                  child: kIsWeb ? InkWell(child: Image.asset("images/ad-space.gif"), onTap: (){
+                    _launchURL();},):AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/1350876358",androidAdId: "ca-app-pub-9037650239384734/8682571463",)
                   // admob end  ----------------------------------------------
                   // Image.asset("images/ad-space.gif"),
                 ),
@@ -110,7 +113,8 @@ class _HomePageFoodState extends State<HomePageFood> {
             ],
           ),
           // admob start  ----------------------------------------------
-          kIsWeb ? Container():AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/8475947085",androidAdId: "ca-app-pub-9037650239384734/4182668227",)
+          kIsWeb ? InkWell(child: Image.asset("images/ad-space.gif"), onTap: (){
+            _launchURL();},):AlyBannerAdUnit(iosAdId: "ca-app-pub-9037650239384734/8475947085",androidAdId: "ca-app-pub-9037650239384734/4182668227",)
           // admob end  ----------------------------------------------
 
           // Row(
@@ -397,4 +401,7 @@ class _HomePageFoodState extends State<HomePageFood> {
       isLoading = false;
     });
   }
+
+
+
 }
