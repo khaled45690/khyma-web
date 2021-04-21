@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
           ],
 
           // ...
-
+// first commit
       supportedLocales: [const Locale('en'), const Locale('ar')],
       theme: ThemeData(
         fontFamily: "STC",
