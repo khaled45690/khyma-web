@@ -21,7 +21,7 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
-
+// 1
 Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
           ],
 
           // ...
-// first commit
+
       supportedLocales: [const Locale('en'), const Locale('ar')],
       theme: ThemeData(
         fontFamily: "STC",
