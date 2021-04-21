@@ -8,7 +8,6 @@ import 'khaled/Screens/QuranScreen.dart';
 import 'package:sanus/khaled/Screens/SettingScreen.dart';
 import 'HomePageFood.dart';
 import 'package:sanus/HomePagePlaces.dart';
-import 'package:facebook_app_events/facebook_app_events.dart';
 
 class BackGroundTemplate extends StatefulWidget {
   BackGroundTemplate({Key key, this.title, this.SubVC}) : super(key: key);
@@ -22,8 +21,6 @@ class BackGroundTemplate extends StatefulWidget {
 // kkkk
 class _BackGroundTemplateState extends State<BackGroundTemplate>
     with SingleTickerProviderStateMixin {
-  static final facebookAppEvents = FacebookAppEvents();
-
   TabController controller;
   int _selectedDestination = 0;
   bool checkedVal = false;
@@ -31,11 +28,6 @@ class _BackGroundTemplateState extends State<BackGroundTemplate>
   @override
   void initState() {
     super.initState();
-    facebookAppEvents.logEvent(
-        name: 'button_clicked',
-        parameters: {
-          'button_id': 'the_clickme_button',
-        },);
     controller = new TabController(
       length: 5,
       vsync: this,
@@ -59,7 +51,6 @@ class _BackGroundTemplateState extends State<BackGroundTemplate>
         iconTheme: IconThemeData(color: Colors.white),
         elevation: 0,
         title: Image.asset("images/word.png", fit: BoxFit.contain, height: 50,width: 90,),
-
 
 
         // Text("الخيمة", textScaleFactor: 2, )

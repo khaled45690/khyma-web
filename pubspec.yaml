@@ -32,7 +32,6 @@ dependencies:
   google_mobile_ads: ^0.12.1
   web_browser_detect: ^2.0.1
   url_launcher: ^6.0.3
-  facebook_app_events: ^0.11.2
 
   #  flutter_facebook_auth: ^3.3.2
 
