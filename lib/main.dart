@@ -23,6 +23,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 // 1
 // 2
+// 3
 Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
