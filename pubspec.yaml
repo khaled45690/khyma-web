@@ -29,17 +29,17 @@ dependencies:
   carousel_slider: ^3.0.0
   shared_preferences: ^2.0.5
   youtube_player_iframe: ^2.0.0
-  google_mobile_ads: ^0.12.1
+  google_mobile_ads: ^0.12.1+1
   web_browser_detect: ^2.0.1
   url_launcher: ^6.0.3
-  facebook_app_events: ^0.11.2
-
-  #  flutter_facebook_auth: ^3.3.2
+#  facebook_app_events: ^0.11.2
+  firebase_core: ^1.1.0
+  firebase_analytics: ^8.0.2
+#  flutter_facebook_auth: ^3.3.3+1
 
   flutter:
     sdk: flutter
-  firebase_core: "^1.0.3"
-  firebase_analytics: "^8.0.0"
+
 
   flutter_localizations:
     sdk: flutter

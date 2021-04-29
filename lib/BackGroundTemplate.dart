@@ -8,7 +8,7 @@ import 'khaled/Screens/QuranScreen.dart';
 import 'package:sanus/khaled/Screens/SettingScreen.dart';
 import 'HomePageFood.dart';
 import 'package:sanus/HomePagePlaces.dart';
-import 'package:facebook_app_events/facebook_app_events.dart';
+// import 'package:facebook_app_events/facebook_app_events.dart';
 
 class BackGroundTemplate extends StatefulWidget {
   BackGroundTemplate({Key key, this.title, this.SubVC}) : super(key: key);
@@ -22,7 +22,7 @@ class BackGroundTemplate extends StatefulWidget {
 
 class _BackGroundTemplateState extends State<BackGroundTemplate>
     with SingleTickerProviderStateMixin {
-  static final facebookAppEvents = FacebookAppEvents();
+  // static final facebookAppEvents = FacebookAppEvents();
 
   TabController controller;
   int _selectedDestination = 0;
@@ -31,11 +31,11 @@ class _BackGroundTemplateState extends State<BackGroundTemplate>
   @override
   void initState() {
     super.initState();
-    facebookAppEvents.logEvent(
-        name: 'button_clicked',
-        parameters: {
-          'button_id': 'the_clickme_button',
-        },);
+    // facebookAppEvents.logEvent(
+    //     name: 'button_clicked',
+    //     parameters: {
+    //       'button_id': 'the_clickme_button',
+    //     },);
     controller = new TabController(
       length: 5,
       vsync: this,

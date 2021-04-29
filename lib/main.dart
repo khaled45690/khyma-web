@@ -11,21 +11,38 @@
 // import 'HomePageFood.dart';
 // import 'package:web_browser_detect/web_browser_detect.dart';
 
+import 'dart:io';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:sanus/BackGroundTemplate.dart';
 import 'package:sanus/khaled/Screens/MainScreen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_analytics/firebase_analytics.dart';
-import 'package:firebase_analytics/observer.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:firebase_core/firebase_core.dart';
+// import 'package:firebase_analytics/firebase_analytics.dart';
+// import 'package:firebase_analytics/observer.dart';
 
 
 Future<void> main() async{
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  await MobileAds.instance.initialize();
+   WidgetsFlutterBinding.ensureInitialized();
+   // await Firebase.initializeApp();
+   // await MobileAds.instance.initialize();
+   try{
+     print(Platform.isAndroid);
+     FirebaseApp app = await Firebase.initializeApp();
+     assert(app != null);
+     print('Initialized $app');
+   }catch(e){
+     print("Firebase.initializeApp()");
+     print(e.toString());
+   }
+   try{
+     await MobileAds.instance.initialize();
+   }catch(e){
+     print("await MobileAds.instance.initialize()");
+     print(e);
+   }
     runApp(MyApp());
 }
 
